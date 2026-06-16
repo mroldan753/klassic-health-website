@@ -1,91 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>KLASSIC HEALTH | Marcos Roldan</title>
-  <style>
-    body { margin: 0; font-family: Arial, sans-serif; color: #0F2D52; background: #f7f9fb; }
-    header { background: #0F2D52; color: white; padding: 50px 20px; text-align: center; }
-    header h1 { margin: 0; font-size: 42px; }
-    header p { font-size: 20px; margin: 15px 0; }
-    .btn { display: inline-block; margin: 10px; padding: 14px 22px; background: #C8A34D; color: white; text-decoration: none; border-radius: 6px; font-weight: bold; }
-    section { padding: 40px 20px; max-width: 1000px; margin: auto; }
-    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
-    .card { background: white; padding: 25px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,.08); }
-    .card h3 { color: #0E8A8A; }
-    footer { background: #0F2D52; color: white; text-align: center; padding: 30px 20px; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KLASSIC HEALTH | Marcos Roldan</title>
+<style>
+body{margin:0;font-family:Arial,sans-serif;background:#f7f8fa;color:#0b1f3a}
+nav{display:flex;justify-content:space-between;align-items:center;padding:18px 8%;background:white;box-shadow:0 2px 12px rgba(0,0,0,.06)}
+.logo{height:70px}
+nav a{margin-left:22px;text-decoration:none;color:#0b1f3a;font-weight:600}
+.btn{background:#b8913a;color:white!important;padding:13px 22px;border-radius:6px;text-decoration:none;font-weight:700;display:inline-block}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding:80px 8%;background:white}
+.hero h1{font-size:54px;line-height:1.05;margin:0 0 20px}
+.hero p{font-size:20px;line-height:1.6;color:#334e68}
+.hero img{width:100%;max-width:430px;border-radius:18px;box-shadow:0 20px 50px rgba(0,0,0,.18)}
+.outline{background:white!important;color:#0b1f3a!important;border:2px solid #0b1f3a}
+.trust{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding:30px 8%;background:#0b1f3a;color:white;text-align:center;font-weight:700}
+section{padding:70px 8%}
+h2{font-size:36px;margin-bottom:15px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:24px;margin-top:30px}
+.card{background:white;padding:30px;border-radius:14px;box-shadow:0 8px 25px rgba(0,0,0,.07)}
+.card h3{color:#0b1f3a;margin-top:0}
+.card p{color:#52616b;line-height:1.6}
+.about{display:grid;grid-template-columns:.8fr 1.2fr;gap:45px;align-items:center;background:white}
+.about img{width:100%;max-width:320px;border-radius:16px}
+.form{background:#0b1f3a;color:white;border-radius:18px;padding:40px;max-width:850px;margin:auto}
+input,select,textarea{width:100%;padding:15px;margin:10px 0;border:none;border-radius:6px;font-size:16px}
+textarea{height:110px}
+footer{background:#07182e;color:white;text-align:center;padding:35px}
+@media(max-width:800px){.hero,.about{grid-template-columns:1fr}.trust{grid-template-columns:1fr 1fr}.hero h1{font-size:40px}nav{flex-direction:column}.logo{margin-bottom:15px}}
+</style>
 </head>
+
 <body>
 
-<header>
-  <h1>KLASSIC HEALTH</h1>
-  <p>Health • Medicare • Life Insurance • Retirement Planning</p>
-  <p>Independent Insurance Guidance with Marcos Roldan</p>
-  <a class="btn" href="https://calendar.app.google/KfwcgUehv9i89Goj7" target="_blank">Schedule a Consultation</a>
-  <a class="btn" href="mailto:mroldan@agentusabg.com">Request a Quote</a>
-</header>
+<nav>
+  <img src="logo.png" class="logo" alt="KLASSIC HEALTH Logo">
+  <div>
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#resources">Resources</a>
+    <a href="#contact" class="btn">Schedule</a>
+  </div>
+</nav>
 
-<section>
-  <h2>Protect Your Health, Family & Financial Future</h2>
-  <p>
-    KLASSIC HEALTH helps individuals, families, self-employed professionals,
-    and retirees compare insurance options and make informed coverage decisions.
-  </p>
-</section>
+<div class="hero">
+  <div>
+    <h1>Protect What Matters Most</h1>
+    <p>Health Insurance. Medicare. Life Insurance. Retirement Planning.</p>
+    <p>Independent guidance designed around your goals, your budget, and your family’s future.</p>
+    <a href="https://calendar.app.google/KfwcgUehv9i89Goj7" target="_blank" class="btn">Schedule Consultation</a>
+    <a href="#contact" class="btn outline">Request a Quote</a>
+  </div>
+  <div>
+    <img src="marcos.jpg" alt="Marcos Roldan">
+  </div>
+</div>
 
-<section>
-  <h2>Services</h2>
+<div class="trust">
+  <div>Independent Broker</div>
+  <div>Licensed Multi-State</div>
+  <div>15+ Years Experience</div>
+  <div>Personalized Reviews</div>
+</div>
+
+<section id="services">
+  <h2>Insurance Solutions</h2>
+  <p>Coverage options designed for individuals, families, self-employed professionals, and retirees.</p>
   <div class="cards">
-    <div class="card">
-      <h3>Health Insurance</h3>
-      <p>Private health plans, ACA reviews, family coverage, and self-employed options.</p>
-    </div>
-    <div class="card">
-      <h3>Medicare</h3>
-      <p>Medicare Supplement, Medicare Advantage reviews, and enrollment guidance.</p>
-    </div>
-    <div class="card">
-      <h3>Life Insurance</h3>
-      <p>Term life, whole life, final expense, and living benefit options.</p>
-    </div>
-    <div class="card">
-      <h3>IUL & Retirement</h3>
-      <p>Tax-advantaged retirement strategies, legacy planning, and cash value education.</p>
-    </div>
+    <div class="card"><h3>Health Insurance</h3><p>Private health plans, ACA reviews, family coverage, and self-employed options.</p></div>
+    <div class="card"><h3>Medicare</h3><p>Medicare Supplement, Medicare Advantage reviews, and enrollment guidance.</p></div>
+    <div class="card"><h3>Life Insurance</h3><p>Term life, whole life, final expense, and living benefit protection.</p></div>
+    <div class="card"><h3>IUL & Retirement</h3><p>Tax-advantaged retirement strategies, cash value education, and legacy planning.</p></div>
   </div>
 </section>
 
-<section>
-  <h2>Resource Center</h2>
-  <div class="cards">
-    <div class="card">
-      <h3>ACA vs Private Coverage</h3>
-      <p>Learn the difference between marketplace plans and private insurance options.</p>
-    </div>
-    <div class="card">
-      <h3>Hospital Protection</h3>
-      <p>Understand hospital indemnity, gap coverage, and accident protection.</p>
-    </div>
-    <div class="card">
-      <h3>Cybersecurity Awareness</h3>
-      <p>Tips for identity theft prevention, healthcare scams, and Medicare fraud awareness.</p>
-    </div>
+<section id="about" class="about">
+  <div>
+    <img src="marcos.jpg" alt="Marcos Roldan">
+  </div>
+  <div>
+    <h2>Meet Marcos Roldan</h2>
+    <p>Marcos Roldan is an independent health and life insurance broker helping families, retirees, and business owners make informed coverage decisions through education and personalized guidance.</p>
+    <p>With over 15 years of healthcare and insurance experience, Marcos focuses on helping clients understand their options before making a decision.</p>
+    <a href="mailto:mroldan@agentusabg.com" class="btn">Email Marcos</a>
   </div>
 </section>
 
-<section>
-  <h2>Contact Marcos</h2>
-  <p><strong>Phone:</strong> 954-998-2727</p>
-  <p><strong>Email:</strong> mroldan@agentusabg.com</p>
-  <p><strong>Website:</strong> USA Benefit Group Independent Broker</p>
-  <a class="btn" href="https://calendar.app.google/KfwcgUehv9i89Goj7" target="_blank">Book an Appointment</a>
+<section id="resources">
+  <h2>Client Resource Center</h2>
+  <div class="cards">
+    <div class="card"><h3>ACA vs Private Coverage</h3><p>Understand the difference between marketplace plans and private insurance options.</p></div>
+    <div class="card"><h3>Hospital Protection</h3><p>Learn how hospital indemnity, gap coverage, and accident protection may help reduce risk.</p></div>
+    <div class="card"><h3>Medicare Basics</h3><p>Simple education about Medicare timing, supplements, and plan comparisons.</p></div>
+    <div class="card"><h3>Cybersecurity Awareness</h3><p>Tips for identity theft prevention, healthcare scams, and Medicare fraud awareness.</p></div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="form">
+    <h2>Request a Free Coverage Review</h2>
+    <p>Complete the form below and Marcos will follow up with you directly.</p>
+
+    <form action="mailto:mroldan@agentusabg.com" method="post" enctype="text/plain">
+      <input type="text" name="Name" placeholder="Full Name">
+      <input type="tel" name="Phone" placeholder="Phone Number">
+      <input type="email" name="Email" placeholder="Email Address">
+      <input type="text" name="State" placeholder="State">
+      <select name="Coverage Needed">
+        <option>Coverage Needed</option>
+        <option>Health Insurance</option>
+        <option>Medicare</option>
+        <option>Life Insurance</option>
+        <option>Final Expense</option>
+        <option>IUL / Retirement Planning</option>
+      </select>
+      <textarea name="Message" placeholder="Tell me what you need help with"></textarea>
+      <button class="btn" type="submit">Submit Request</button>
+    </form>
+  </div>
 </section>
 
 <footer>
-  <p>© 2026 KLASSIC HEALTH | Marcos Roldan</p>
-  <p>Independent Health & Life Insurance Broker</p>
+  <p><strong>KLASSIC HEALTH</strong></p>
+  <p>Marcos Roldan | Independent Health & Life Insurance Broker</p>
+  <p>954-998-2727 | mroldan@agentusabg.com</p>
 </footer>
 
 </body>
