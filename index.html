@@ -6,153 +6,127 @@
   <title>KLASSIC HEALTH | Marcos Roldan</title>
 
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      background: #f7f2e9;
-      color: #071d33;
+      font-family: Georgia, "Times New Roman", serif;
+      background: #f7f3ec;
+      color: #061826;
       line-height: 1.6;
     }
-    h1, h2, h3 {
-      font-family: Georgia, "Times New Roman", serif;
-      font-weight: 500;
+
+    p, a, li, input, select, textarea, button {
+      font-family: Arial, sans-serif;
     }
-    a { text-decoration: none; }
+
+    a {
+      text-decoration: none;
+    }
 
     header {
       background: #fffaf2;
-      border-bottom: 1px solid #e6d8bd;
+      border-bottom: 1px solid #e5d8c2;
       position: sticky;
       top: 0;
-      z-index: 999;
-      box-shadow: 0 4px 18px rgba(0,0,0,.08);
+      z-index: 1000;
     }
 
     .nav {
-      max-width: 1220px;
+      max-width: 1200px;
       margin: auto;
-      padding: 14px 28px;
+      padding: 16px 28px;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      gap: 18px;
+      align-items: center;
+      gap: 20px;
     }
 
     .brand-wrap {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 14px;
     }
 
     .site-logo {
-      height: 68px;
+      height: 62px;
       width: auto;
-      border-radius: 6px;
+      border-radius: 8px;
     }
 
-    .brand-name {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 26px;
-      color: #071d33;
+    .brand-text h1 {
+      font-size: 28px;
+      color: #061826;
       letter-spacing: .5px;
+      line-height: 1;
     }
 
-    .brand-sub {
+    .brand-text p {
       font-size: 11px;
-      color: #9b6b24;
-      font-weight: 800;
+      color: #8a641f;
+      font-weight: 700;
       letter-spacing: 1px;
+      margin-top: 5px;
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 20px;
+      gap: 24px;
     }
 
-    .nav-links a, .dropbtn {
-      color: #071d33;
+    .nav-links a {
+      color: #061826;
       font-size: 13px;
       font-weight: 800;
       text-transform: uppercase;
-      background: none;
-      border: none;
-      cursor: pointer;
     }
 
-    .nav-links a:hover, .dropbtn:hover {
-      color: #a87525;
-    }
-
-    .dropdown {
-      position: relative;
-    }
-
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      top: 26px;
-      left: 0;
-      background: #fffaf2;
-      min-width: 245px;
-      border: 1px solid #e6d8bd;
-      box-shadow: 0 14px 30px rgba(0,0,0,.15);
-      z-index: 1000;
-    }
-
-    .dropdown-content a {
-      display: block;
-      padding: 13px 16px;
-      font-size: 13px;
-      text-transform: none;
-      border-bottom: 1px solid #eadcc4;
-    }
-
-    .dropdown-content a:hover {
-      background: #f1e5d2;
-    }
-
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
-
-    .top-phone {
-      font-weight: 800;
-      color: #071d33;
-      white-space: nowrap;
+    .phone {
+      font-size: 16px;
+      font-weight: 700;
+      color: #061826;
+      font-family: Arial, sans-serif;
     }
 
     .btn {
       display: inline-block;
       padding: 13px 24px;
+      background: #061826;
+      color: white !important;
       border-radius: 3px;
-      font-size: 13px;
       font-weight: 800;
       text-transform: uppercase;
-      letter-spacing: .3px;
-      border: 1px solid #071d33;
-      background: #071d33;
-      color: white !important;
+      font-size: 13px;
+      letter-spacing: .4px;
+      border: 1px solid #061826;
+      font-family: Arial, sans-serif;
     }
 
     .btn.gold {
-      background: #b88736;
-      border-color: #b88736;
+      background: #b5822f;
+      border-color: #b5822f;
       color: white !important;
     }
 
-    .btn.light {
-      background: #fffaf2;
-      color: #071d33 !important;
-      border-color: #d2aa68;
+    .btn.outline {
+      background: transparent;
+      color: #061826 !important;
+      border: 1px solid #b5822f;
     }
 
     .hero {
-      min-height: 600px;
+      min-height: 560px;
       background:
-        linear-gradient(90deg, rgba(5,20,35,.95) 0%, rgba(5,20,35,.78) 45%, rgba(5,20,35,.18) 100%),
-        url("https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1800&q=85");
+        linear-gradient(90deg, rgba(6,24,38,.93) 0%, rgba(6,24,38,.70) 42%, rgba(6,24,38,.20) 72%),
+        url("https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1800&q=80");
       background-size: cover;
       background-position: center;
       display: flex;
@@ -160,156 +134,164 @@
     }
 
     .hero-inner {
-      width: 100%;
-      max-width: 1220px;
+      max-width: 1200px;
       margin: auto;
-      padding: 90px 28px;
+      padding: 80px 28px;
+      width: 100%;
     }
 
     .hero-content {
-      max-width: 650px;
-      color: white;
+      max-width: 620px;
     }
 
-    .hero h1 {
-      font-size: 58px;
+    .hero h2 {
+      font-size: 56px;
       line-height: 1.08;
-      margin-bottom: 18px;
+      color: #ffffff;
+      margin-bottom: 20px;
+      font-weight: 600;
     }
 
-    .gold-line {
-      width: 78px;
+    .hero-line {
+      width: 70px;
       height: 2px;
-      background: #d6b46a;
+      background: #b5822f;
       margin: 20px 0;
     }
 
     .hero p {
+      color: #f4efe7;
       font-size: 18px;
-      color: #f6efe4;
-      max-width: 590px;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
+      max-width: 560px;
     }
 
     .hero-actions {
       display: flex;
       gap: 16px;
-      flex-wrap: wrap;
       margin-top: 28px;
+      flex-wrap: wrap;
+    }
+
+    .trust-bar {
+      background: #fffaf2;
+      border-bottom: 1px solid #e5d8c2;
+    }
+
+    .trust-inner {
+      max-width: 1200px;
+      margin: auto;
+      padding: 24px 28px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .trust-item {
+      border-right: 1px solid #e1d4bf;
+      padding-right: 20px;
+    }
+
+    .trust-item:last-child {
+      border-right: none;
+    }
+
+    .trust-item h4 {
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      color: #061826;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+
+    .trust-item p {
+      font-size: 13px;
+      color: #45515f;
     }
 
     .container {
-      max-width: 1220px;
+      max-width: 1200px;
       margin: auto;
       padding: 70px 28px;
     }
 
     .section-label {
-      color: #a87525;
+      text-align: center;
+      color: #9a6b22;
+      font-family: Arial, sans-serif;
       font-size: 13px;
-      font-weight: 900;
+      font-weight: 800;
       letter-spacing: 1px;
       text-transform: uppercase;
-      text-align: center;
       margin-bottom: 8px;
     }
 
-    .section-title {
+    h2.section-title {
       text-align: center;
       font-size: 36px;
-      color: #071d33;
+      line-height: 1.2;
+      color: #061826;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+
+    .section-intro {
+      max-width: 720px;
+      margin: 0 auto 42px;
+      text-align: center;
+      color: #4a5565;
+      font-size: 16px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 0;
+      border-top: 1px solid #e0d2bb;
+      border-bottom: 1px solid #e0d2bb;
+    }
+
+    .service-card {
+      padding: 34px 18px;
+      text-align: center;
+      border-right: 1px solid #e0d2bb;
+      background: #fffaf2;
+    }
+
+    .service-card:last-child {
+      border-right: none;
+    }
+
+    .service-card .icon {
+      width: 58px;
+      height: 58px;
+      border: 1px solid #b5822f;
+      border-radius: 50%;
+      margin: 0 auto 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #b5822f;
+      font-size: 26px;
+      font-family: Arial, sans-serif;
+    }
+
+    .service-card h3 {
+      font-size: 20px;
+      color: #061826;
       margin-bottom: 10px;
       line-height: 1.2;
     }
 
-    .section-intro {
-      max-width: 760px;
-      margin: 0 auto 42px;
-      text-align: center;
-      color: #4d5b68;
-      font-size: 16px;
-    }
-
-    .services-row {
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      border-top: 1px solid #decfb5;
-      border-bottom: 1px solid #decfb5;
-    }
-
-    .service {
-      background: #fffaf2;
-      text-align: center;
-      padding: 32px 18px;
-      border-right: 1px solid #decfb5;
-    }
-
-    .service:last-child { border-right: none; }
-
-    .service-icon {
-      width: 58px;
-      height: 58px;
-      border: 1px solid #b88736;
-      color: #b88736;
-      border-radius: 50%;
-      margin: 0 auto 15px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 25px;
-    }
-
-    .service h3 {
-      font-size: 20px;
-      margin-bottom: 10px;
-      color: #071d33;
-    }
-
-    .service p {
-      color: #4d5b68;
+    .service-card p {
       font-size: 14px;
-    }
-
-    .carrier-section {
-      background: #071d33;
-      color: white;
-      padding: 32px 28px;
-    }
-
-    .carrier-inner {
-      max-width: 1220px;
-      margin: auto;
-    }
-
-    .carrier-title {
-      text-align: center;
-      color: #d6b46a;
-      font-size: 14px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      font-weight: 900;
-      margin-bottom: 22px;
-    }
-
-    .carrier-grid {
-      display: grid;
-      grid-template-columns: repeat(9, 1fr);
-      gap: 10px;
-    }
-
-    .carrier {
-      border: 1px solid rgba(214,180,106,.45);
-      background: rgba(255,255,255,.05);
-      text-align: center;
-      padding: 13px 8px;
-      font-weight: 800;
-      font-size: 13px;
+      color: #4a5565;
     }
 
     .about-section {
-      background: #fffaf2;
-      border-top: 1px solid #e6d8bd;
-      border-bottom: 1px solid #e6d8bd;
+      background: #ffffff;
+      border-top: 1px solid #e5d8c2;
+      border-bottom: 1px solid #e5d8c2;
     }
 
     .about-grid {
@@ -322,8 +304,8 @@
     .about-photo img {
       width: 100%;
       border-radius: 6px;
-      border: 1px solid #decfb5;
-      box-shadow: 0 16px 40px rgba(0,0,0,.16);
+      box-shadow: 0 14px 35px rgba(0,0,0,.15);
+      border: 1px solid #e0d2bb;
     }
 
     .about-copy .section-label {
@@ -331,20 +313,25 @@
     }
 
     .about-copy h2 {
-      font-size: 36px;
-      color: #071d33;
-      margin-bottom: 16px;
+      font-size: 34px;
+      color: #061826;
+      margin-bottom: 18px;
       line-height: 1.2;
+      font-weight: 500;
     }
 
     .about-copy p {
-      color: #43515f;
       font-size: 15px;
-      margin-bottom: 12px;
+      color: #394858;
+      margin-bottom: 13px;
     }
 
-    .why-box {
-      border-left: 1px solid #decfb5;
+    .about-copy strong {
+      color: #9a6b22;
+    }
+
+    .why-list {
+      border-left: 1px solid #e0d2bb;
       padding-left: 24px;
     }
 
@@ -353,237 +340,243 @@
     }
 
     .why-item h4 {
+      font-family: Arial, sans-serif;
       font-size: 14px;
-      color: #071d33;
-      margin-bottom: 4px;
+      color: #061826;
+      margin-bottom: 3px;
     }
 
     .why-item p {
-      color: #4d5b68;
       font-size: 13px;
-    }
-
-    .check {
-      color: #b88736;
-      font-weight: 900;
-      margin-right: 6px;
+      color: #4a5565;
     }
 
     .process-section {
-      background: #f7f2e9;
-    }
-
-    .process-title-wrap {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 22px;
-      margin-bottom: 36px;
-    }
-
-    .process-title-wrap .line {
-      width: 90px;
-      height: 1px;
-      background: #b88736;
-    }
-
-    .process-title-wrap h2 {
-      color: #071d33;
-      font-size: 30px;
-      text-align: center;
-      text-transform: uppercase;
-      letter-spacing: .5px;
+      background: #f7f3ec;
     }
 
     .process-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 0;
-      border-top: 1px solid #decfb5;
-      border-bottom: 1px solid #decfb5;
+      border-top: 1px solid #d9c8ac;
+      border-bottom: 1px solid #d9c8ac;
     }
 
     .process-card {
-      padding: 28px 24px;
-      background: #fffaf2;
-      border-right: 1px solid #decfb5;
+      padding: 30px 24px;
+      border-right: 1px solid #d9c8ac;
+      background: #f9f5ee;
     }
 
-    .process-card:last-child { border-right: none; }
+    .process-card:last-child {
+      border-right: none;
+    }
 
-    .process-num {
-      color: #b88736;
-      font-family: Georgia, serif;
-      font-size: 28px;
+    .number {
+      color: #b5822f;
+      font-size: 24px;
       margin-bottom: 10px;
     }
 
     .process-card h3 {
       font-size: 19px;
       margin-bottom: 10px;
-      color: #071d33;
+      color: #061826;
+      line-height: 1.2;
     }
 
     .process-card p {
       font-size: 14px;
-      color: #4d5b68;
+      color: #4a5565;
     }
 
     .resources-section {
       background: #fffaf2;
-      border-top: 1px solid #e6d8bd;
+      border-top: 1px solid #e5d8c2;
     }
 
     .resource-layout {
       display: grid;
-      grid-template-columns: 250px 1fr 220px;
-      gap: 24px;
+      grid-template-columns: 280px 1fr 230px;
+      gap: 28px;
       align-items: stretch;
-    }
-
-    .resource-title .section-label {
-      text-align: left;
     }
 
     .resource-title h2 {
       font-size: 28px;
+      color: #061826;
       line-height: 1.2;
-      margin-bottom: 12px;
-      color: #071d33;
+      font-weight: 500;
+      margin-bottom: 14px;
     }
 
     .resource-title p {
-      color: #4d5b68;
-      font-size: 14px;
+      color: #4a5565;
+      font-size: 15px;
     }
 
     .resource-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
+      gap: 16px;
     }
 
     .resource-card {
       background: white;
-      border: 1px solid #decfb5;
+      border: 1px solid #e0d2bb;
       border-radius: 5px;
       padding: 20px;
-      min-height: 170px;
-      box-shadow: 0 7px 20px rgba(0,0,0,.04);
+      min-height: 180px;
+      box-shadow: 0 6px 18px rgba(0,0,0,.05);
     }
 
     .resource-card h3 {
       font-size: 15px;
-      line-height: 1.2;
+      color: #061826;
       margin-bottom: 8px;
-      color: #071d33;
+      line-height: 1.25;
     }
 
     .resource-card p {
-      color: #4d5b68;
+      color: #4a5565;
       font-size: 13px;
       margin-bottom: 14px;
     }
 
     .resource-card a {
-      color: #071d33;
+      color: #061826;
       font-size: 12px;
       font-weight: 900;
       text-transform: uppercase;
-      border-bottom: 1px solid #b88736;
-      padding-bottom: 4px;
+      border-bottom: 1px solid #b5822f;
+      padding-bottom: 3px;
+      font-family: Arial, sans-serif;
     }
 
     .quote-box {
-      background: #071d33;
+      background: #061826;
       color: white;
-      padding: 24px;
+      padding: 26px;
       border-radius: 5px;
     }
 
     .quote-box h3 {
-      color: #d6b46a;
       font-size: 24px;
-      line-height: 1.2;
-      margin-bottom: 10px;
+      line-height: 1.15;
+      color: #d6b46a;
+      margin-bottom: 12px;
     }
 
     .quote-box p {
       font-size: 14px;
-      color: #f6efe4;
       margin-bottom: 18px;
+      color: #f4efe7;
     }
 
-    .footer-section {
-      background: #071d33;
+    .contact-section {
+      background: #061826;
       color: white;
     }
 
-    .footer-grid {
+    .contact-grid {
       display: grid;
-      grid-template-columns: 1.3fr 1fr 1fr 1fr;
-      gap: 38px;
+      grid-template-columns: 1.2fr 1fr 1fr 1fr;
+      gap: 42px;
     }
 
     .footer-logo {
       max-width: 230px;
-      background: white;
-      border-radius: 6px;
       margin-bottom: 14px;
+      border-radius: 8px;
     }
 
-    .footer-section h3 {
+    .contact-section h3 {
       color: #d6b46a;
-      font-size: 17px;
+      font-size: 18px;
       margin-bottom: 14px;
     }
 
-    .footer-section p,
-    .footer-section a,
-    .footer-section li {
-      color: #f6efe4;
+    .contact-section p,
+    .contact-section a,
+    .contact-section li {
+      color: #f4efe7;
       font-size: 14px;
       margin-bottom: 8px;
+      font-family: Arial, sans-serif;
       display: block;
     }
 
-    .footer-section ul { list-style: none; }
+    .contact-section ul {
+      list-style: none;
+    }
 
     footer {
-      background: #020e19;
-      color: #d7d7d7;
+      background: #03101a;
+      color: #d8d8d8;
       text-align: center;
       padding: 18px;
+      font-family: Arial, sans-serif;
       font-size: 12px;
     }
 
-    @media (max-width: 1100px) {
-      .nav { flex-wrap: wrap; }
-      .services-row { grid-template-columns: repeat(3, 1fr); }
-      .carrier-grid { grid-template-columns: repeat(3, 1fr); }
-      .about-grid { grid-template-columns: 1fr; }
-      .why-box { border-left: none; padding-left: 0; }
-      .process-grid { grid-template-columns: repeat(2, 1fr); }
-      .resource-layout { grid-template-columns: 1fr; }
-      .resource-grid { grid-template-columns: repeat(2, 1fr); }
-      .footer-grid { grid-template-columns: 1fr 1fr; }
+    @media (max-width: 1050px) {
+      .services-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .why-list {
+        border-left: none;
+        padding-left: 0;
+      }
+
+      .resource-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .resource-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr 1fr;
+      }
     }
 
     @media (max-width: 720px) {
-      .nav { align-items: flex-start; }
-      .nav-links { flex-wrap: wrap; gap: 12px; }
-      .top-phone { display: none; }
-      .hero h1 { font-size: 40px; }
-      .services-row,
-      .carrier-grid,
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .phone {
+        display: none;
+      }
+
+      .hero h2 {
+        font-size: 40px;
+      }
+
+      .services-grid,
       .process-grid,
       .resource-grid,
-      .footer-grid {
+      .contact-grid {
         grid-template-columns: 1fr;
       }
-      .service, .process-card {
+
+      .service-card,
+      .process-card {
         border-right: none;
-        border-bottom: 1px solid #decfb5;
+        border-bottom: 1px solid #e0d2bb;
       }
     }
   </style>
@@ -594,62 +587,66 @@
 <header>
   <div class="nav">
     <div class="brand-wrap">
-      <img src="logo klassick health.jpg" onerror="this.src='logo  klassikc health.jpg'" alt="KLASSIC HEALTH Logo" class="site-logo">
-      <div>
-        <div class="brand-name">KLASSIC HEALTH</div>
-        <div class="brand-sub">LIFE & HEALTH INSURANCE BROKER</div>
+      <img src="logo klassick health.jpg" alt="KLASSIC HEALTH Logo" class="site-logo">
+      <div class="brand-text">
+        <h1>KLASSIC HEALTH</h1>
+        <p>LIFE & HEALTH INSURANCE BROKER</p>
       </div>
     </div>
 
     <div class="nav-links">
       <a href="#home">Home</a>
       <a href="#about">About</a>
-
-      <div class="dropdown">
-        <button class="dropbtn">Services ▾</button>
-        <div class="dropdown-content">
-          <a href="#services">Health Insurance</a>
-          <a href="#services">Medicare Planning</a>
-          <a href="#services">Life Insurance</a>
-          <a href="#services">Retirement & IUL</a>
-          <a href="#services">Small Business Benefits</a>
-          <a href="#services">Supplemental Protection</a>
-        </div>
-      </div>
-
-      <div class="dropdown">
-        <button class="dropbtn">Resources ▾</button>
-        <div class="dropdown-content">
-          <a href="assets/Luxury Medicare Getting-Ready Checklist.pdf" target="_blank">Medicare Checklist</a>
-          <a href="assets/ACA-vs-Private-Health-Insurance.pdf" target="_blank">ACA vs Private Health</a>
-          <a href="assets/Retirement-Strategy.pdf" target="_blank">Retirement Strategy</a>
-          <a href="assets/The Entrepreneur's Wealth Blueprint.pdf" target="_blank">IUL Wealth Blueprint</a>
-          <a href="#resources">View Resource Library</a>
-        </div>
-      </div>
-
-      <a href="#process">Why Us</a>
+      <a href="#services">Services</a>
+      <a href="#resources">Resources</a>
       <a href="#contact">Contact</a>
     </div>
 
-    <div class="top-phone">☎ 954-998-2727</div>
+    <div class="phone">954-998-2727</div>
 
-    <a class="btn" href="https://calendar.app.google/KfwcgUehv9i89Goj7" target="_blank">Schedule Appointment</a>
+    <a class="btn" href="https://calendar.app.google/KfwcgUehv9i89Goj7" target="_blank">
+      Schedule Appointment
+    </a>
   </div>
 </header>
 
 <section id="home" class="hero">
   <div class="hero-inner">
     <div class="hero-content">
-      <h1>Private Health, Medicare & Retirement Guidance for Every Stage of Life.</h1>
-      <div class="gold-line"></div>
+      <h2>Private Health, Medicare & Retirement Guidance for Every Stage of Life.</h2>
+      <div class="hero-line"></div>
       <p>
         A structured advisory approach for individuals, families, retirees, and business owners who want clarity, protection, and long-term planning.
       </p>
+
       <div class="hero-actions">
         <a class="btn" href="https://calendar.app.google/KfwcgUehv9i89Goj7" target="_blank">Schedule a Consultation</a>
-        <a class="btn light" href="#contact">Get a Quote</a>
+        <a class="btn outline" href="#contact">Get a Quote</a>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="trust-bar">
+  <div class="trust-inner">
+    <div class="trust-item">
+      <h4>Independent Broker</h4>
+      <p>Not tied to one company. Always working for your best fit.</p>
+    </div>
+
+    <div class="trust-item">
+      <h4>Licensed & Experienced</h4>
+      <p>Multi-state experience with healthcare and Medicare planning.</p>
+    </div>
+
+    <div class="trust-item">
+      <h4>Client Focused</h4>
+      <p>Personalized solutions based on your doctors, budget, and goals.</p>
+    </div>
+
+    <div class="trust-item">
+      <h4>Confidential & Secure</h4>
+      <p>Your personal information and coverage decisions are handled carefully.</p>
     </div>
   </div>
 </section>
@@ -659,62 +656,45 @@
     <div class="section-label">Our Services</div>
     <h2 class="section-title">Solutions that protect what matters most.</h2>
     <p class="section-intro">
-      We help individuals, families, retirees, and business owners find the right coverage with personalized service.
+      Helping individuals, families, retirees, and business owners find the right coverage with personalized guidance and top-rated carriers.
     </p>
 
-    <div class="services-row">
-      <div class="service">
-        <div class="service-icon">♡</div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="icon">♡</div>
         <h3>Health Insurance</h3>
-        <p>Private health, ACA marketplace, family, and self-employed options.</p>
+        <p>Private health plans, ACA marketplace reviews, family coverage, and self-employed options under 65.</p>
       </div>
 
-      <div class="service">
-        <div class="service-icon">✚</div>
+      <div class="service-card">
+        <div class="icon">✚</div>
         <h3>Medicare Planning</h3>
-        <p>Medicare Advantage, Supplement, Part D, and enrollment support.</p>
+        <p>Medicare Advantage, Medicare Supplement, Part D prescription drug plans, and enrollment support.</p>
       </div>
 
-      <div class="service">
-        <div class="service-icon">👥</div>
+      <div class="service-card">
+        <div class="icon">👥</div>
         <h3>Life Insurance</h3>
-        <p>Term, whole life, final expense, and living benefits protection.</p>
+        <p>Term, whole life, final expense, and living benefits protection for you and your family.</p>
       </div>
 
-      <div class="service">
-        <div class="service-icon">↗</div>
+      <div class="service-card">
+        <div class="icon">↗</div>
         <h3>Retirement & IUL</h3>
-        <p>Indexed Universal Life strategies for protection and retirement planning.</p>
+        <p>Indexed Universal Life strategies designed for protection, cash value, and tax-advantaged planning.</p>
       </div>
 
-      <div class="service">
-        <div class="service-icon">▣</div>
+      <div class="service-card">
+        <div class="icon">▣</div>
         <h3>Small Business Benefits</h3>
-        <p>Benefit solutions for owners, employees, and contractors.</p>
+        <p>Benefit solutions for business owners, contractors, employees, and growing teams.</p>
       </div>
 
-      <div class="service">
-        <div class="service-icon">🛡</div>
+      <div class="service-card">
+        <div class="icon">🛡</div>
         <h3>Supplemental Protection</h3>
-        <p>Hospital indemnity, accident, critical illness, and extra financial security.</p>
+        <p>Hospital indemnity, accident, critical illness, and specified disease coverage options.</p>
       </div>
-    </div>
-  </div>
-</section>
-
-<section class="carrier-section">
-  <div class="carrier-inner">
-    <div class="carrier-title">Access to Leading Insurance & Benefit Solutions</div>
-    <div class="carrier-grid">
-      <div class="carrier">Aetna</div>
-      <div class="carrier">UnitedHealthcare</div>
-      <div class="carrier">Humana</div>
-      <div class="carrier">Mutual of Omaha</div>
-      <div class="carrier">ManhattanLife</div>
-      <div class="carrier">Philadelphia American</div>
-      <div class="carrier">Transamerica</div>
-      <div class="carrier">Ethos</div>
-      <div class="carrier">PSM</div>
     </div>
   </div>
 </section>
@@ -728,22 +708,22 @@
 
       <div class="about-copy">
         <div class="section-label">About Marcos Roldan</div>
-        <h2>Guidance. Experience. Strategy.</h2>
+        <h2>Guidance. Experience. Loyalty.</h2>
 
         <p>
-          Marcos Roldan is an independent Health and Life Insurance Broker with over 15 years of experience in healthcare, Medicare consulting, client education, insurance support, and benefits planning.
+          Marcos Roldan is an independent Health and Life Insurance Broker with over 15 years of experience in healthcare, insurance, Medicare consulting, client education, and benefits planning.
         </p>
 
         <p>
-          Before building KLASSIC HEALTH, Marcos worked in healthcare operations and Medicare-focused insurance environments, helping individuals and families understand their coverage, providers, prescriptions, enrollment timelines, and financial protection options.
+          Before becoming an independent broker, Marcos worked in healthcare operations and Medicare-focused insurance environments, where he helped individuals and families understand their coverage, doctors, prescriptions, enrollment timelines, and financial protection options.
         </p>
 
         <p>
-          Today, Marcos helps clients navigate every stage of life — from private health insurance under 65, to Medicare planning, life insurance protection, supplemental benefits, small business solutions, and retirement strategies using Indexed Universal Life.
+          Today, through KLASSIC HEALTH, Marcos helps clients navigate every stage of life — from private health insurance under 65, to Medicare planning, life insurance protection, supplemental benefits, small business solutions, and retirement strategies using Indexed Universal Life.
         </p>
 
         <p>
-          As an independent broker, Marcos is not limited to one carrier. He compares multiple insurance options to help create personalized strategies that align with each client’s health needs, budget, family protection goals, and long-term retirement objectives.
+          As an independent broker, Marcos is not limited to one carrier. He compares multiple options to help create personalized strategies that align with each client’s health needs, budget, family protection goals, and long-term retirement objectives.
         </p>
 
         <p>
@@ -751,62 +731,61 @@
         </p>
       </div>
 
-      <div class="why-box">
+      <div class="why-list">
         <div class="why-item">
-          <h4><span class="check">✓</span>Independent Broker</h4>
+          <h4>Independent Broker</h4>
           <p>Not tied to one insurance company.</p>
         </div>
 
         <div class="why-item">
-          <h4><span class="check">✓</span>Licensed Multi-State</h4>
-          <p>Serving clients across multiple states.</p>
+          <h4>Multi-Carrier Access</h4>
+          <p>Compares options across multiple carriers and plan types.</p>
         </div>
 
         <div class="why-item">
-          <h4><span class="check">✓</span>Client Focused</h4>
-          <p>Personalized solutions designed around your goals.</p>
+          <h4>Healthcare Experience</h4>
+          <p>Background in healthcare operations, Medicare, and client support.</p>
         </div>
 
         <div class="why-item">
-          <h4><span class="check">✓</span>Confidential & Secure</h4>
-          <p>Your information is handled with care.</p>
+          <h4>Structured Planning</h4>
+          <p>Helps connect health coverage, Medicare, protection, and retirement planning.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section id="process" class="process-section">
+<section class="process-section">
   <div class="container">
-    <div class="process-title-wrap">
-      <div class="line"></div>
-      <h2>A Structured Planning Approach</h2>
-      <div class="line"></div>
-    </div>
+    <h2 class="section-title">A Structured Planning Approach</h2>
+    <p class="section-intro">
+      Coverage should not be random. A strong plan connects your health coverage, family protection, business needs, and retirement strategy.
+    </p>
 
     <div class="process-grid">
       <div class="process-card">
-        <div class="process-num">01</div>
+        <div class="number">01</div>
         <h3>Health Coverage Foundation</h3>
-        <p>Private health insurance, ACA reviews, Medicare planning, prescriptions, and provider access.</p>
+        <p>Private health insurance, ACA reviews, Medicare planning, prescriptions, provider access, and coverage structure.</p>
       </div>
 
       <div class="process-card">
-        <div class="process-num">02</div>
+        <div class="number">02</div>
         <h3>Financial Protection Layer</h3>
-        <p>Life insurance, hospital indemnity, accident coverage, and critical illness protection.</p>
+        <p>Life insurance, hospital indemnity, accident coverage, critical illness, and supplemental protection.</p>
       </div>
 
       <div class="process-card">
-        <div class="process-num">03</div>
+        <div class="number">03</div>
         <h3>Retirement Strategy</h3>
-        <p>Indexed Universal Life, tax-advantaged strategies, and retirement income planning.</p>
+        <p>Indexed Universal Life, tax-advantaged strategies, cash value planning, and retirement income concepts.</p>
       </div>
 
       <div class="process-card">
-        <div class="process-num">04</div>
+        <div class="number">04</div>
         <h3>Legacy & Business Planning</h3>
-        <p>Family protection, small business benefits, and long-term financial strategies.</p>
+        <p>Family protection, small business benefits, long-term financial strategies, and succession planning.</p>
       </div>
     </div>
   </div>
@@ -816,72 +795,75 @@
   <div class="container">
     <div class="resource-layout">
       <div class="resource-title">
-        <div class="section-label">Client Resource Library</div>
+        <div class="section-label" style="text-align:left;">Client Resource Library</div>
         <h2>Knowledge helps you make better decisions.</h2>
-        <p>Complimentary guides and tools to help you make informed coverage decisions.</p>
+        <p>
+          Download complimentary guides and planning tools to better understand your health, Medicare, life insurance, and retirement options.
+        </p>
       </div>
 
       <div class="resource-grid">
         <div class="resource-card">
-          <h3>Luxury Medicare Getting-Ready Checklist</h3>
-          <p>Step-by-step checklist to prepare for enrollment.</p>
-          <a href="assets/Luxury Medicare Getting-Ready Checklist.pdf" target="_blank">Download PDF →</a>
+          <h3>Medicare Enrollment Checklist</h3>
+          <p>Step-by-step checklist to prepare for Medicare enrollment.</p>
+          <a href="assets/Medicare_Enrollment_Checklist_Marcos_Roldan.pdf" target="_blank">Download PDF</a>
+        </div>
+
+        <div class="resource-card">
+          <h3>Premium Medicare Guide</h3>
+          <p>A complete guide to help you review Medicare options.</p>
+          <a href="assets/KLASSIC_HEALTH_Premium_Medicare_Guide.pdf" target="_blank">Download PDF</a>
         </div>
 
         <div class="resource-card">
           <h3>ACA vs Private Health Insurance Guide</h3>
           <p>Compare options and find the right fit for you.</p>
-          <a href="assets/ACA-vs-Private-Health-Insurance.pdf" target="_blank">Download PDF →</a>
+          <a href="assets/ACA_vs_Private_Health_Insurance_Guide.pdf" target="_blank">Download PDF</a>
         </div>
 
         <div class="resource-card">
-          <h3>Retirement Strategy Guide</h3>
-          <p>Learn retirement concepts for long-term planning.</p>
-          <a href="assets/Retirement-Strategy.pdf" target="_blank">Download PDF →</a>
-        </div>
-
-        <div class="resource-card">
-          <h3>IUL Wealth Blueprint</h3>
-          <p>Explore protection, cash value, and retirement flexibility.</p>
-          <a href="assets/The Entrepreneur's Wealth Blueprint.pdf" target="_blank">Download PDF →</a>
+          <h3>IUL Retirement Guide</h3>
+          <p>Learn how IUL may support protection and retirement planning.</p>
+          <a href="assets/The Entrepreneur's Wealth Blueprint.pdf" target="_blank">Download PDF</a>
         </div>
       </div>
 
       <div class="quote-box">
         <h3>Get Your Free Quote</h3>
-        <p>We’ll help you find the right coverage for your needs and budget.</p>
-        <a class="btn gold" href="https://calendar.app.google/KfwcgUehv9i89Goj7" target="_blank">Get a Quote</a>
+        <p>We’ll help you compare options based on your needs, doctors, prescriptions, and budget.</p>
+        <a class="btn gold" href="https://calendar.app.google/KfwcgUehv9i89Goj7" target="_blank">Schedule Now</a>
       </div>
     </div>
   </div>
 </section>
 
-<section id="contact" class="footer-section">
+<section id="contact" class="contact-section">
   <div class="container">
-    <div class="footer-grid">
+    <div class="contact-grid">
       <div>
-        <img src="logo klassick health.jpg" onerror="this.src='logo  klassikc health.jpg'" alt="KLASSIC HEALTH Logo" class="footer-logo">
-        <p>Independent guidance. Trusted advice. Coverage that fits your life and your future.</p>
+        <img src="logo klassick health.jpg" alt="KLASSIC HEALTH Logo" class="footer-logo">
+        <p>
+          Independent guidance. Trusted advice. Coverage that fits your life and your future.
+        </p>
       </div>
 
       <div>
         <h3>Quick Links</h3>
         <ul>
           <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
+          <li><a href="#about">About Marcos</a></li>
           <li><a href="#services">Services</a></li>
           <li><a href="#resources">Resources</a></li>
-          <li><a href="#process">Why Choose Us</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
 
       <div>
         <h3>Contact</h3>
-        <p>954-998-2727</p>
-        <p>mroldan@agentusabg.com</p>
-        <p>usabg.com/mroldan</p>
-        <p>Serving Florida & multiple states</p>
+        <p>Phone: 954-998-2727</p>
+        <p>Email: mroldan@agentusabg.com</p>
+        <p>Website: usabg.com/mroldan</p>
+        <p>Serving Florida and surrounding states</p>
       </div>
 
       <div>
