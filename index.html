@@ -7,49 +7,289 @@
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Arial,sans-serif;background:#fff;color:#102A43;line-height:1.6}
-nav{display:flex;justify-content:space-between;align-items:center;padding:18px 7%;background:#fff;border-bottom:1px solid #eee;position:sticky;top:0;z-index:100}
+
+body{
+font-family:Arial,sans-serif;
+background:#0B0B0B;
+color:#F5F1E8;
+line-height:1.6;
+}
+
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:22px 7%;
+background:#0B0B0B;
+border-bottom:1px solid rgba(184,145,58,.35);
+position:sticky;
+top:0;
+z-index:1000;
+}
+
 .logo-img{
-height:135px;
-max-width:460px;
+height:150px;
+width:auto;
+max-width:520px;
 object-fit:contain;
 display:block;
 }
-.menu a{margin-left:18px;text-decoration:none;color:#102A43;font-weight:700}
-.btn{background:#B8913A;color:white!important;padding:13px 22px;border-radius:6px;text-decoration:none;font-weight:800;display:inline-block;border:none;cursor:pointer}
-.btn-outline{background:white!important;color:#102A43!important;border:2px solid #102A43}
-.hero{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;padding:90px 7%;background:linear-gradient(135deg,#f7f4ed,#ffffff)}
-.hero h1{font-size:56px;line-height:1.08;margin-bottom:20px}
-.hero p{font-size:20px;color:#334E68;margin-bottom:18px}
-.hero-photo{width:100%;max-width:430px;height:520px;object-fit:cover;border-radius:20px;box-shadow:0 25px 60px rgba(0,0,0,.18)}
-.trust{background:#102A43;color:white;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding:28px 7%;text-align:center;font-weight:800}
-.section{padding:80px 7%}
-.section h2{font-size:40px;margin-bottom:15px}
-.section-intro{max-width:900px;color:#52616B;margin-bottom:35px}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:25px}
-.card{background:white;padding:30px;border-radius:16px;box-shadow:0 8px 30px rgba(0,0,0,.08);border:1px solid #eef1f4}
-.card h3{margin-bottom:12px}
-.card p{color:#52616B;margin-bottom:20px}
-.badge{display:inline-block;background:#F5F7FA;color:#102A43;padding:6px 10px;border-radius:20px;font-size:13px;font-weight:800;margin-bottom:12px}
-.free{border-top:5px solid #102A43}
-.locked{border-top:5px solid #B8913A}
-.about{background:#F5F7FA}
-.about-grid{display:grid;grid-template-columns:300px 1fr;gap:45px;align-items:center}
-.about-img{width:260px;height:320px;object-fit:cover;border-radius:18px;box-shadow:0 15px 40px rgba(0,0,0,.16)}
-.form-box{background:#102A43;color:white;padding:45px;border-radius:18px;max-width:900px;margin:auto}
-input,select,textarea{width:100%;padding:15px;margin:10px 0;border:none;border-radius:6px;font-size:16px}
-textarea{height:120px}
-footer{background:#07182e;color:white;text-align:center;padding:45px}
-hr{border:none;border-top:1px solid #d8dee6;margin:45px 0}
+
+.menu a{
+margin-left:20px;
+text-decoration:none;
+color:#F5F1E8;
+font-weight:700;
+font-size:15px;
+letter-spacing:.5px;
+}
+
+.btn{
+background:#B8913A;
+color:#0B0B0B!important;
+padding:14px 24px;
+border-radius:4px;
+text-decoration:none;
+font-weight:900;
+display:inline-block;
+border:none;
+cursor:pointer;
+text-transform:uppercase;
+font-size:13px;
+letter-spacing:.7px;
+}
+
+.btn-outline{
+background:transparent!important;
+color:#F5F1E8!important;
+border:1px solid #B8913A;
+}
+
+.hero{
+display:grid;
+grid-template-columns:1.05fr .95fr;
+gap:55px;
+align-items:center;
+padding:90px 7%;
+background:
+linear-gradient(135deg,rgba(11,11,11,.95),rgba(25,25,25,.98)),
+radial-gradient(circle at top right,rgba(184,145,58,.18),transparent 45%);
+}
+
+.kicker{
+color:#B8913A;
+font-size:13px;
+font-weight:900;
+letter-spacing:2px;
+text-transform:uppercase;
+margin-bottom:18px;
+}
+
+.hero h1{
+font-size:68px;
+line-height:1;
+margin-bottom:24px;
+letter-spacing:-2px;
+}
+
+.hero p{
+font-size:20px;
+color:#D8D1C3;
+margin-bottom:20px;
+max-width:680px;
+}
+
+.hero-actions{
+display:flex;
+gap:14px;
+flex-wrap:wrap;
+margin-top:30px;
+}
+
+.hero-frame{
+position:relative;
+background:#151515;
+border:1px solid rgba(184,145,58,.35);
+padding:18px;
+border-radius:22px;
+box-shadow:0 30px 80px rgba(0,0,0,.55);
+}
+
+.hero-photo{
+width:100%;
+height:560px;
+object-fit:cover;
+object-position:center top;
+border-radius:16px;
+display:block;
+}
+
+.photo-label{
+position:absolute;
+left:30px;
+bottom:30px;
+background:rgba(11,11,11,.78);
+border:1px solid rgba(184,145,58,.5);
+padding:18px 22px;
+border-radius:10px;
+backdrop-filter:blur(8px);
+}
+
+.photo-label strong{
+display:block;
+font-size:18px;
+color:#fff;
+}
+
+.photo-label span{
+color:#B8913A;
+font-size:13px;
+}
+
+.trust{
+background:#111111;
+border-top:1px solid rgba(184,145,58,.25);
+border-bottom:1px solid rgba(184,145,58,.25);
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:20px;
+padding:28px 7%;
+text-align:center;
+font-weight:800;
+color:#F5F1E8;
+}
+
+.section{
+padding:85px 7%;
+}
+
+.section h2{
+font-size:44px;
+line-height:1.1;
+margin-bottom:15px;
+}
+
+.section-intro{
+max-width:900px;
+color:#C9C1B3;
+margin-bottom:38px;
+font-size:18px;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(245px,1fr));
+gap:26px;
+}
+
+.card{
+background:#141414;
+padding:32px;
+border-radius:16px;
+border:1px solid rgba(184,145,58,.22);
+box-shadow:0 18px 45px rgba(0,0,0,.28);
+}
+
+.card h3{
+margin-bottom:12px;
+color:#FFFFFF;
+font-size:22px;
+}
+
+.card p{
+color:#C9C1B3;
+margin-bottom:22px;
+}
+
+.badge{
+display:inline-block;
+background:rgba(184,145,58,.12);
+color:#D9B95B;
+padding:7px 11px;
+border-radius:100px;
+font-size:12px;
+font-weight:900;
+margin-bottom:14px;
+text-transform:uppercase;
+letter-spacing:.8px;
+border:1px solid rgba(184,145,58,.35);
+}
+
+.free{border-top:4px solid #D9B95B}
+.locked{border-top:4px solid #7A1F1F}
+
+.split{
+display:grid;
+grid-template-columns:.85fr 1.15fr;
+gap:50px;
+align-items:center;
+}
+
+.about{
+background:#101010;
+border-top:1px solid rgba(184,145,58,.22);
+border-bottom:1px solid rgba(184,145,58,.22);
+}
+
+.about-img{
+width:100%;
+max-width:330px;
+height:auto;
+border-radius:18px;
+border:1px solid rgba(184,145,58,.4);
+box-shadow:0 25px 70px rgba(0,0,0,.45);
+display:block;
+}
+
+.form-box{
+background:#111111;
+border:1px solid rgba(184,145,58,.35);
+color:white;
+padding:48px;
+border-radius:20px;
+max-width:920px;
+margin:auto;
+box-shadow:0 25px 70px rgba(0,0,0,.35);
+}
+
+input,select,textarea{
+width:100%;
+padding:16px;
+margin:10px 0;
+border:1px solid rgba(184,145,58,.25);
+background:#0B0B0B;
+color:#F5F1E8;
+border-radius:6px;
+font-size:16px;
+}
+
+textarea{height:125px}
+
+footer{
+background:#050505;
+color:white;
+text-align:center;
+padding:48px 7%;
+border-top:1px solid rgba(184,145,58,.35);
+}
+
+hr{
+border:none;
+border-top:1px solid rgba(184,145,58,.25);
+margin:50px 0;
+}
+
 @media(max-width:900px){
-nav{flex-direction:column;gap:12px}
+nav{flex-direction:column;gap:15px}
+.logo-img{height:120px}
 .menu{text-align:center}
-.menu a{display:inline-block;margin:7px}
+.menu a{display:inline-block;margin:8px}
 .hero{grid-template-columns:1fr;padding:60px 6%}
-.hero h1{font-size:39px}
-.hero-photo{height:420px}
+.hero h1{font-size:44px}
+.hero-photo{height:430px}
 .trust{grid-template-columns:1fr}
-.about-grid{grid-template-columns:1fr;text-align:center}
+.split{grid-template-columns:1fr;text-align:center}
+.about-img{margin:auto}
 .section{padding:60px 6%}
 }
 </style>
@@ -61,7 +301,7 @@ nav{flex-direction:column;gap:12px}
 <img src="images/logo.jpg" class="logo-img" alt="KLASSIC HEALTH Logo">
 <div class="menu">
 <a href="#solutions">Solutions</a>
-<a href="#resources">Resources</a>
+<a href="#resources">Resource Vault</a>
 <a href="#about">About</a>
 <a href="#contact">Contact</a>
 <a class="btn" href="https://calendar.app.google/KfwcgUehv9i89Goj7" target="_blank">Schedule</a>
@@ -70,16 +310,23 @@ nav{flex-direction:column;gap:12px}
 
 <section class="hero">
 <div>
-<h1>Smarter Protection. Stronger Retirement. Better Decisions.</h1>
-<p>Private Benefits & Retirement Advisory for families, professionals, business owners, and retirees.</p>
-<p>Health Insurance • Medicare • Life Insurance • IUL • Retirement Planning • Small Business Benefits</p>
-<br>
+<div class="kicker">Private Benefits & Retirement Advisory</div>
+<h1>Smart Coverage. Stronger Future.</h1>
+<p>Premium guidance for health insurance, Medicare, life insurance, IUL strategies, and small business benefits.</p>
+<p>Designed for families, professionals, business owners, and retirees who want clearer decisions and stronger protection.</p>
+
+<div class="hero-actions">
 <a class="btn" href="https://calendar.app.google/KfwcgUehv9i89Goj7" target="_blank">Schedule Consultation</a>
-<a class="btn btn-outline" href="#resources">View Resources</a>
+<a class="btn btn-outline" href="#resources">View Resource Vault</a>
+</div>
 </div>
 
-<div>
+<div class="hero-frame">
 <img src="images/marcos.jpg" class="hero-photo" alt="Marcos Roldan">
+<div class="photo-label">
+<strong>Marcos Roldan</strong>
+<span>Independent Health & Life Insurance Broker</span>
+</div>
 </div>
 </section>
 
@@ -87,7 +334,7 @@ nav{flex-direction:column;gap:12px}
 <div>Independent Broker</div>
 <div>Multi-State Licensed</div>
 <div>15+ Years Healthcare Experience</div>
-<div>Personalized Coverage Reviews</div>
+<div>Confidential Coverage Reviews</div>
 </div>
 
 <section id="solutions" class="section">
@@ -105,63 +352,83 @@ nav{flex-direction:column;gap:12px}
 
 <section id="resources" class="section">
 <h2>KLASSIC HEALTH Resource Vault</h2>
-<p class="section-intro">Download free guides or request access to advanced retirement resources that are reviewed with you during a strategy session.</p>
+<p class="section-intro">Download free educational guides or request access to premium retirement resources reviewed during a strategy session.</p>
 
 <h2>Free Downloadable Guides</h2>
+
 <div class="cards">
 
 <div class="card free">
 <span class="badge">Free Download</span>
 <h3>Medicare Checklist</h3>
 <p>Prepare for Medicare enrollment and annual coverage reviews.</p>
-<a class="btn" href="assets/medicare-checklist.pdf" target="_blank">Download Guide</a>
+<a class="btn" href="assets/medicare-checklist.pdf" target="_blank">Download</a>
 </div>
 
 <div class="card free">
 <span class="badge">Free Download</span>
 <h3>ACA vs Private Health Insurance</h3>
 <p>Compare ACA marketplace plans and private coverage options.</p>
-<a class="btn" href="assets/aca-vs-private.pdf" target="_blank">Download Guide</a>
+<a class="btn" href="assets/aca-vs-private.pdf" target="_blank">Download</a>
 </div>
 
 <div class="card free">
 <span class="badge">Free Download</span>
 <h3>Life Insurance Buyer’s Guide</h3>
 <p>Understand term, whole life, IUL, and family protection basics.</p>
-<a class="btn" href="assets/life-insurance-guide.pdf" target="_blank">Download Guide</a>
+<a class="btn" href="assets/life-insurance-guide.pdf" target="_blank">Download</a>
 </div>
 
 <div class="card free">
 <span class="badge">Free Download</span>
 <h3>Hospital Indemnity Guide</h3>
 <p>Learn how hospital cash benefits may help reduce financial stress.</p>
-<a class="btn" href="assets/hospital-indemnity-guide.pdf" target="_blank">Download Guide</a>
+<a class="btn" href="assets/hospital-indemnity-guide.pdf" target="_blank">Download</a>
 </div>
 
 <div class="card free">
 <span class="badge">Free Download</span>
 <h3>Small Business Benefits Guide</h3>
 <p>Compare group coverage and alternative employee benefit strategies.</p>
-<a class="btn" href="assets/small-business-benefits-guide.pdf" target="_blank">Download Guide</a>
+<a class="btn" href="assets/small-business-benefits-guide.pdf" target="_blank">Download</a>
 </div>
 
 </div>
 
 <hr>
 
-<h2>Advanced Retirement Resources</h2>
-<p class="section-intro">These resources are available by request. Schedule a brief strategy session so Marcos can review your goals and provide the correct guide.</p>
+<h2>Premium Advisory Resources</h2>
+<p class="section-intro">These three resources are available by request only. Submit your information and schedule a strategy session so Marcos can provide the correct document.</p>
 
 <div class="cards">
-<div class="card locked"><span class="badge">By Request</span><h3>Tax-Free Retirement Blueprint</h3><p>For clients interested in tax-advantaged retirement income and IUL strategies.</p><a class="btn" href="#retirement-request">Request Access</a></div>
-<div class="card locked"><span class="badge">By Request</span><h3>Retirement Strategy Guide</h3><p>Compare IUL, Roth IRA, 401(k), flexibility, timing, and accumulation strategies.</p><a class="btn" href="#retirement-request">Request Access</a></div>
-<div class="card locked"><span class="badge">By Request</span><h3>Entrepreneur Wealth Blueprint</h3><p>For business owners and self-employed professionals seeking long-term protection strategies.</p><a class="btn" href="#retirement-request">Request Access</a></div>
+
+<div class="card locked">
+<span class="badge">Locked Resource</span>
+<h3>Tax-Free Retirement Blueprint</h3>
+<p>For clients interested in tax-advantaged retirement income and IUL strategies.</p>
+<a class="btn" href="#retirement-request">Request Access</a>
+</div>
+
+<div class="card locked">
+<span class="badge">Locked Resource</span>
+<h3>Retirement Strategy Guide</h3>
+<p>Compare IUL, Roth IRA, 401(k), flexibility, timing, and accumulation strategies.</p>
+<a class="btn" href="#retirement-request">Request Access</a>
+</div>
+
+<div class="card locked">
+<span class="badge">Locked Resource</span>
+<h3>Entrepreneur Wealth Blueprint</h3>
+<p>For business owners and self-employed professionals seeking long-term protection strategies.</p>
+<a class="btn" href="#retirement-request">Request Access</a>
+</div>
+
 </div>
 </section>
 
 <section id="retirement-request" class="section">
 <div class="form-box">
-<h2>Request Advanced Retirement Resources</h2>
+<h2>Request Premium Resource Access</h2>
 <p>Submit your information and schedule a strategy session to receive the appropriate retirement resource.</p>
 
 <form action="mailto:mroldan@agentusabg.com" method="post" enctype="text/plain">
@@ -196,14 +463,15 @@ nav{flex-direction:column;gap:12px}
 </section>
 
 <section id="about" class="section about">
-<div class="about-grid">
+<div class="split">
 <div>
 <img src="images/marcos.jpg" class="about-img" alt="Marcos Roldan">
 </div>
+
 <div>
-<h2>Meet Marcos Roldan</h2>
-<p>Marcos Roldan is an independent health and life insurance broker with over 15 years of healthcare and insurance experience. Through KLASSIC HEALTH, Marcos helps families, professionals, retirees, and business owners make informed decisions about health coverage, Medicare, life insurance, and retirement planning.</p>
-<br>
+<div class="kicker">Meet Your Advisor</div>
+<h2>Marcos Roldan</h2>
+<p class="section-intro">Marcos Roldan is an independent health and life insurance broker with over 15 years of healthcare and insurance experience. Through KLASSIC HEALTH, Marcos helps families, professionals, retirees, and business owners make informed decisions about health coverage, Medicare, life insurance, and retirement planning.</p>
 <a class="btn" href="mailto:mroldan@agentusabg.com">Email Marcos</a>
 </div>
 </div>
