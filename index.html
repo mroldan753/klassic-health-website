@@ -7,40 +7,44 @@
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Arial,sans-serif;background:#ffffff;color:#102A43;line-height:1.6}
-nav{display:flex;justify-content:space-between;align-items:center;padding:20px 8%;background:#fff;border-bottom:1px solid #e5e7eb;position:sticky;top:0;z-index:10}
-.logo{font-size:28px;font-weight:800;color:#102A43}
-.menu a{margin-left:18px;text-decoration:none;color:#102A43;font-weight:600}
-.btn{background:#B8913A;color:white!important;padding:13px 22px;border-radius:6px;text-decoration:none;font-weight:700;display:inline-block;border:none;cursor:pointer}
+body{font-family:Arial,sans-serif;background:#fff;color:#102A43;line-height:1.6}
+nav{display:flex;justify-content:space-between;align-items:center;padding:18px 7%;background:#fff;border-bottom:1px solid #eee;position:sticky;top:0;z-index:100}
+.logo-img{height:70px;max-width:260px;object-fit:contain}
+.menu a{margin-left:18px;text-decoration:none;color:#102A43;font-weight:700}
+.btn{background:#B8913A;color:white!important;padding:13px 22px;border-radius:6px;text-decoration:none;font-weight:800;display:inline-block;border:none;cursor:pointer}
 .btn-outline{background:white!important;color:#102A43!important;border:2px solid #102A43}
-.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:center;padding:90px 8%;background:#F5F7FA}
-.hero h1{font-size:58px;line-height:1.1;margin-bottom:20px}
-.hero p{font-size:21px;color:#334E68;margin-bottom:18px}
-.hero-box{background:white;border-radius:20px;padding:45px;box-shadow:0 15px 45px rgba(0,0,0,.08)}
-.trust{background:#102A43;color:white;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding:28px 8%;text-align:center;font-weight:700}
-.section{padding:80px 8%}
+.hero{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;padding:90px 7%;background:linear-gradient(135deg,#f7f4ed,#ffffff)}
+.hero h1{font-size:56px;line-height:1.08;margin-bottom:20px}
+.hero p{font-size:20px;color:#334E68;margin-bottom:18px}
+.hero-photo{width:100%;max-width:430px;height:520px;object-fit:cover;border-radius:20px;box-shadow:0 25px 60px rgba(0,0,0,.18)}
+.trust{background:#102A43;color:white;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding:28px 7%;text-align:center;font-weight:800}
+.section{padding:80px 7%}
 .section h2{font-size:40px;margin-bottom:15px}
-.section-intro{max-width:850px;color:#52616B;margin-bottom:35px}
+.section-intro{max-width:900px;color:#52616B;margin-bottom:35px}
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:25px}
-.card{background:white;padding:30px;border-radius:14px;box-shadow:0 8px 28px rgba(0,0,0,.08);border:1px solid #eef1f4}
-.card h3{margin-bottom:12px;color:#102A43}
+.card{background:white;padding:30px;border-radius:16px;box-shadow:0 8px 30px rgba(0,0,0,.08);border:1px solid #eef1f4}
+.card h3{margin-bottom:12px}
 .card p{color:#52616B;margin-bottom:20px}
-.badge{display:inline-block;background:#F5F7FA;color:#102A43;padding:6px 10px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:12px}
-.locked{border-top:5px solid #B8913A}
+.badge{display:inline-block;background:#F5F7FA;color:#102A43;padding:6px 10px;border-radius:20px;font-size:13px;font-weight:800;margin-bottom:12px}
 .free{border-top:5px solid #102A43}
-.about{background:#F5F7FA;text-align:center}
+.locked{border-top:5px solid #B8913A}
+.about{background:#F5F7FA}
+.about-grid{display:grid;grid-template-columns:300px 1fr;gap:45px;align-items:center}
+.about-img{width:260px;height:320px;object-fit:cover;border-radius:18px;box-shadow:0 15px 40px rgba(0,0,0,.16)}
 .form-box{background:#102A43;color:white;padding:45px;border-radius:18px;max-width:900px;margin:auto}
 input,select,textarea{width:100%;padding:15px;margin:10px 0;border:none;border-radius:6px;font-size:16px}
 textarea{height:120px}
-footer{background:#07182e;color:white;text-align:center;padding:40px}
+footer{background:#07182e;color:white;text-align:center;padding:45px}
 hr{border:none;border-top:1px solid #d8dee6;margin:45px 0}
 @media(max-width:900px){
-nav{flex-direction:column;gap:15px}
+nav{flex-direction:column;gap:12px}
 .menu{text-align:center}
-.menu a{display:inline-block;margin:8px}
+.menu a{display:inline-block;margin:7px}
 .hero{grid-template-columns:1fr;padding:60px 6%}
-.hero h1{font-size:40px}
+.hero h1{font-size:39px}
+.hero-photo{height:420px}
 .trust{grid-template-columns:1fr}
+.about-grid{grid-template-columns:1fr;text-align:center}
 .section{padding:60px 6%}
 }
 </style>
@@ -49,7 +53,7 @@ nav{flex-direction:column;gap:15px}
 <body>
 
 <nav>
-<div class="logo">KLASSIC HEALTH</div>
+<img src="images/logo.jpg" class="logo-img" alt="KLASSIC HEALTH Logo">
 <div class="menu">
 <a href="#solutions">Solutions</a>
 <a href="#resources">Resources</a>
@@ -69,11 +73,8 @@ nav{flex-direction:column;gap:15px}
 <a class="btn btn-outline" href="#resources">View Resources</a>
 </div>
 
-<div class="hero-box">
-<h2>Start With a Coverage Review</h2>
-<p>Get guidance based on your age, state, budget, family needs, and long-term goals.</p>
-<p><strong>Marcos Roldan</strong><br>Independent Health & Life Insurance Broker</p>
-<p>📞 954-998-2727<br>📧 mroldan@agentusabg.com</p>
+<div>
+<img src="images/marcos.jpg" class="hero-photo" alt="Marcos Roldan">
 </div>
 </section>
 
@@ -102,7 +103,6 @@ nav{flex-direction:column;gap:15px}
 <p class="section-intro">Download free guides or request access to advanced retirement resources that are reviewed with you during a strategy session.</p>
 
 <h2>Free Downloadable Guides</h2>
-
 <div class="cards">
 
 <div class="card free">
@@ -121,7 +121,7 @@ nav{flex-direction:column;gap:15px}
 
 <div class="card free">
 <span class="badge">Free Download</span>
-<h3>Life Insurance Buyer's Guide</h3>
+<h3>Life Insurance Buyer’s Guide</h3>
 <p>Understand term, whole life, IUL, and family protection basics.</p>
 <a class="btn" href="assets/life-insurance-guide.pdf" target="_blank">Download Guide</a>
 </div>
@@ -148,28 +148,9 @@ nav{flex-direction:column;gap:15px}
 <p class="section-intro">These resources are available by request. Schedule a brief strategy session so Marcos can review your goals and provide the correct guide.</p>
 
 <div class="cards">
-
-<div class="card locked">
-<span class="badge">By Request</span>
-<h3>Tax-Free Retirement Blueprint</h3>
-<p>For clients interested in tax-advantaged retirement income and IUL strategies.</p>
-<a class="btn" href="#retirement-request">Request Access</a>
-</div>
-
-<div class="card locked">
-<span class="badge">By Request</span>
-<h3>Retirement Strategy Guide</h3>
-<p>Compare IUL, Roth IRA, 401(k), flexibility, timing, and accumulation strategies.</p>
-<a class="btn" href="#retirement-request">Request Access</a>
-</div>
-
-<div class="card locked">
-<span class="badge">By Request</span>
-<h3>Entrepreneur Wealth Blueprint</h3>
-<p>For business owners and self-employed professionals seeking long-term protection strategies.</p>
-<a class="btn" href="#retirement-request">Request Access</a>
-</div>
-
+<div class="card locked"><span class="badge">By Request</span><h3>Tax-Free Retirement Blueprint</h3><p>For clients interested in tax-advantaged retirement income and IUL strategies.</p><a class="btn" href="#retirement-request">Request Access</a></div>
+<div class="card locked"><span class="badge">By Request</span><h3>Retirement Strategy Guide</h3><p>Compare IUL, Roth IRA, 401(k), flexibility, timing, and accumulation strategies.</p><a class="btn" href="#retirement-request">Request Access</a></div>
+<div class="card locked"><span class="badge">By Request</span><h3>Entrepreneur Wealth Blueprint</h3><p>For business owners and self-employed professionals seeking long-term protection strategies.</p><a class="btn" href="#retirement-request">Request Access</a></div>
 </div>
 </section>
 
@@ -178,9 +159,7 @@ nav{flex-direction:column;gap:15px}
 <h2>Request Advanced Retirement Resources</h2>
 <p>Submit your information and schedule a strategy session to receive the appropriate retirement resource.</p>
 
-<form name="retirement-resource-request" method="POST" data-netlify="true">
-<input type="hidden" name="form-name" value="retirement-resource-request">
-
+<form action="mailto:mroldan@agentusabg.com" method="post" enctype="text/plain">
 <input type="text" name="Full Name" placeholder="Full Name" required>
 <input type="tel" name="Phone" placeholder="Phone Number" required>
 <input type="email" name="Email" placeholder="Email Address" required>
@@ -212,10 +191,17 @@ nav{flex-direction:column;gap:15px}
 </section>
 
 <section id="about" class="section about">
+<div class="about-grid">
+<div>
+<img src="images/marcos.jpg" class="about-img" alt="Marcos Roldan">
+</div>
+<div>
 <h2>Meet Marcos Roldan</h2>
-<p style="max-width:850px;margin:auto;">
-Marcos Roldan is an independent health and life insurance broker with over 15 years of healthcare and insurance experience. Through KLASSIC HEALTH, Marcos helps families, professionals, retirees, and business owners make informed decisions about health coverage, Medicare, life insurance, and retirement planning.
-</p>
+<p>Marcos Roldan is an independent health and life insurance broker with over 15 years of healthcare and insurance experience. Through KLASSIC HEALTH, Marcos helps families, professionals, retirees, and business owners make informed decisions about health coverage, Medicare, life insurance, and retirement planning.</p>
+<br>
+<a class="btn" href="mailto:mroldan@agentusabg.com">Email Marcos</a>
+</div>
+</div>
 </section>
 
 <section id="contact" class="section">
@@ -223,9 +209,7 @@ Marcos Roldan is an independent health and life insurance broker with over 15 ye
 <h2>Request a Coverage Review</h2>
 <p>Need help with health insurance, Medicare, life insurance, or benefits planning? Submit your information below.</p>
 
-<form name="coverage-review" method="POST" data-netlify="true">
-<input type="hidden" name="form-name" value="coverage-review">
-
+<form action="mailto:mroldan@agentusabg.com" method="post" enctype="text/plain">
 <input type="text" name="Full Name" placeholder="Full Name" required>
 <input type="tel" name="Phone" placeholder="Phone Number" required>
 <input type="email" name="Email" placeholder="Email Address" required>
