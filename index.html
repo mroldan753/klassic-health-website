@@ -1,908 +1,277 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>KLASSIC HEALTH | Marcos Roldan</title>
-
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: Arial, sans-serif;
-      background: #f7f2e9;
-      color: #071d33;
-      line-height: 1.6;
-    }
-    h1, h2, h3 {
-      font-family: Georgia, "Times New Roman", serif;
-      font-weight: 500;
-    }
-    a { text-decoration: none; }
-
-    header {
-      background: #fffaf2;
-      border-bottom: 1px solid #e6d8bd;
-      position: sticky;
-      top: 0;
-      z-index: 999;
-      box-shadow: 0 4px 18px rgba(0,0,0,.08);
-    }
-
-    .nav {
-      max-width: 1220px;
-      margin: auto;
-      padding: 14px 28px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 18px;
-    }
-
-    .brand-wrap {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .site-logo {
-      height: 68px;
-      width: auto;
-      border-radius: 6px;
-    }
-
-    .brand-name {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 26px;
-      color: #071d33;
-      letter-spacing: .5px;
-    }
-
-    .brand-sub {
-      font-size: 11px;
-      color: #9b6b24;
-      font-weight: 800;
-      letter-spacing: 1px;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
-
-    .nav-links a, .dropbtn {
-      color: #071d33;
-      font-size: 13px;
-      font-weight: 800;
-      text-transform: uppercase;
-      background: none;
-      border: none;
-      cursor: pointer;
-    }
-
-    .nav-links a:hover, .dropbtn:hover {
-      color: #a87525;
-    }
-
-    .dropdown {
-      position: relative;
-    }
-
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      top: 26px;
-      left: 0;
-      background: #fffaf2;
-      min-width: 245px;
-      border: 1px solid #e6d8bd;
-      box-shadow: 0 14px 30px rgba(0,0,0,.15);
-      z-index: 1000;
-    }
-
-    .dropdown-content a {
-      display: block;
-      padding: 13px 16px;
-      font-size: 13px;
-      text-transform: none;
-      border-bottom: 1px solid #eadcc4;
-    }
-
-    .dropdown-content a:hover {
-      background: #f1e5d2;
-    }
-
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
-
-    .top-phone {
-      font-weight: 800;
-      color: #071d33;
-      white-space: nowrap;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 13px 24px;
-      border-radius: 3px;
-      font-size: 13px;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: .3px;
-      border: 1px solid #071d33;
-      background: #071d33;
-      color: white !important;
-    }
-
-    .btn.gold {
-      background: #b88736;
-      border-color: #b88736;
-      color: white !important;
-    }
-
-    .btn.light {
-      background: #fffaf2;
-      color: #071d33 !important;
-      border-color: #d2aa68;
-    }
-
-    .hero {
-      min-height: 600px;
-      background:
-        linear-gradient(90deg, rgba(5,20,35,.95) 0%, rgba(5,20,35,.78) 45%, rgba(5,20,35,.18) 100%),
-        url("https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1800&q=85");
-      background-size: cover;
-      background-position: center;
-      display: flex;
-      align-items: center;
-    }
-
-    .hero-inner {
-      width: 100%;
-      max-width: 1220px;
-      margin: auto;
-      padding: 90px 28px;
-    }
-
-    .hero-content {
-      max-width: 650px;
-      color: white;
-    }
-
-    .hero h1 {
-      font-size: 58px;
-      line-height: 1.08;
-      margin-bottom: 18px;
-    }
-
-    .gold-line {
-      width: 78px;
-      height: 2px;
-      background: #d6b46a;
-      margin: 20px 0;
-    }
-
-    .hero p {
-      font-size: 18px;
-      color: #f6efe4;
-      max-width: 590px;
-      margin-bottom: 12px;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-      margin-top: 28px;
-    }
-
-    .container {
-      max-width: 1220px;
-      margin: auto;
-      padding: 70px 28px;
-    }
-
-    .section-label {
-      color: #a87525;
-      font-size: 13px;
-      font-weight: 900;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      text-align: center;
-      margin-bottom: 8px;
-    }
-
-    .section-title {
-      text-align: center;
-      font-size: 36px;
-      color: #071d33;
-      margin-bottom: 10px;
-      line-height: 1.2;
-    }
-
-    .section-intro {
-      max-width: 760px;
-      margin: 0 auto 42px;
-      text-align: center;
-      color: #4d5b68;
-      font-size: 16px;
-    }
-
-    .services-row {
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      border-top: 1px solid #decfb5;
-      border-bottom: 1px solid #decfb5;
-    }
-
-    .service {
-      background: #fffaf2;
-      text-align: center;
-      padding: 32px 18px;
-      border-right: 1px solid #decfb5;
-    }
-
-    .service:last-child { border-right: none; }
-
-    .service-icon {
-      width: 58px;
-      height: 58px;
-      border: 1px solid #b88736;
-      color: #b88736;
-      border-radius: 50%;
-      margin: 0 auto 15px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 25px;
-    }
-
-    .service h3 {
-      font-size: 20px;
-      margin-bottom: 10px;
-      color: #071d33;
-    }
-
-    .service p {
-      color: #4d5b68;
-      font-size: 14px;
-    }
-
-    .carrier-section {
-      background: #071d33;
-      color: white;
-      padding: 32px 28px;
-    }
-
-    .carrier-inner {
-      max-width: 1220px;
-      margin: auto;
-    }
-
-    .carrier-title {
-      text-align: center;
-      color: #d6b46a;
-      font-size: 14px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      font-weight: 900;
-      margin-bottom: 22px;
-    }
-
-    .carrier-grid {
-      display: grid;
-      grid-template-columns: repeat(9, 1fr);
-      gap: 10px;
-    }
-
-    .carrier {
-      border: 1px solid rgba(214,180,106,.45);
-      background: rgba(255,255,255,.05);
-      text-align: center;
-      padding: 13px 8px;
-      font-weight: 800;
-      font-size: 13px;
-    }
-
-    .about-section {
-      background: #fffaf2;
-      border-top: 1px solid #e6d8bd;
-      border-bottom: 1px solid #e6d8bd;
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 390px 1fr 260px;
-      gap: 34px;
-      align-items: center;
-    }
-
-    .about-photo img {
-      width: 100%;
-      border-radius: 6px;
-      border: 1px solid #decfb5;
-      box-shadow: 0 16px 40px rgba(0,0,0,.16);
-    }
-
-    .about-copy .section-label {
-      text-align: left;
-    }
-
-    .about-copy h2 {
-      font-size: 36px;
-      color: #071d33;
-      margin-bottom: 16px;
-      line-height: 1.2;
-    }
-
-    .about-copy p {
-      color: #43515f;
-      font-size: 15px;
-      margin-bottom: 12px;
-    }
-
-    .why-box {
-      border-left: 1px solid #decfb5;
-      padding-left: 24px;
-    }
-
-    .why-item {
-      margin-bottom: 22px;
-    }
-
-    .why-item h4 {
-      font-size: 14px;
-      color: #071d33;
-      margin-bottom: 4px;
-    }
-
-    .why-item p {
-      color: #4d5b68;
-      font-size: 13px;
-    }
-
-    .check {
-      color: #b88736;
-      font-weight: 900;
-      margin-right: 6px;
-    }
-
-    .process-section {
-      background: #f7f2e9;
-    }
-
-    .process-title-wrap {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 22px;
-      margin-bottom: 36px;
-    }
-
-    .process-title-wrap .line {
-      width: 90px;
-      height: 1px;
-      background: #b88736;
-    }
-
-    .process-title-wrap h2 {
-      color: #071d33;
-      font-size: 30px;
-      text-align: center;
-      text-transform: uppercase;
-      letter-spacing: .5px;
-    }
-
-    .process-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 0;
-      border-top: 1px solid #decfb5;
-      border-bottom: 1px solid #decfb5;
-    }
-
-    .process-card {
-      padding: 28px 24px;
-      background: #fffaf2;
-      border-right: 1px solid #decfb5;
-    }
-
-    .process-card:last-child { border-right: none; }
-
-    .process-num {
-      color: #b88736;
-      font-family: Georgia, serif;
-      font-size: 28px;
-      margin-bottom: 10px;
-    }
-
-    .process-card h3 {
-      font-size: 19px;
-      margin-bottom: 10px;
-      color: #071d33;
-    }
-
-    .process-card p {
-      font-size: 14px;
-      color: #4d5b68;
-    }
-
-    .resources-section {
-      background: #fffaf2;
-      border-top: 1px solid #e6d8bd;
-    }
-
-    .resource-layout {
-      display: grid;
-      grid-template-columns: 250px 1fr 220px;
-      gap: 24px;
-      align-items: stretch;
-    }
-
-    .resource-title .section-label {
-      text-align: left;
-    }
-
-    .resource-title h2 {
-      font-size: 28px;
-      line-height: 1.2;
-      margin-bottom: 12px;
-      color: #071d33;
-    }
-
-    .resource-title p {
-      color: #4d5b68;
-      font-size: 14px;
-    }
-
-    .resource-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
-    }
-
-    .resource-card {
-      background: white;
-      border: 1px solid #decfb5;
-      border-radius: 5px;
-      padding: 20px;
-      min-height: 170px;
-      box-shadow: 0 7px 20px rgba(0,0,0,.04);
-    }
-
-    .resource-card h3 {
-      font-size: 15px;
-      line-height: 1.2;
-      margin-bottom: 8px;
-      color: #071d33;
-    }
-
-    .resource-card p {
-      color: #4d5b68;
-      font-size: 13px;
-      margin-bottom: 14px;
-    }
-
-    .resource-card a {
-      color: #071d33;
-      font-size: 12px;
-      font-weight: 900;
-      text-transform: uppercase;
-      border-bottom: 1px solid #b88736;
-      padding-bottom: 4px;
-    }
-
-    .quote-box {
-      background: #071d33;
-      color: white;
-      padding: 24px;
-      border-radius: 5px;
-    }
-
-    .quote-box h3 {
-      color: #d6b46a;
-      font-size: 24px;
-      line-height: 1.2;
-      margin-bottom: 10px;
-    }
-
-    .quote-box p {
-      font-size: 14px;
-      color: #f6efe4;
-      margin-bottom: 18px;
-    }
-
-    .footer-section {
-      background: #071d33;
-      color: white;
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 1.3fr 1fr 1fr 1fr;
-      gap: 38px;
-    }
-
-    .footer-logo {
-      max-width: 230px;
-      background: white;
-      border-radius: 6px;
-      margin-bottom: 14px;
-    }
-
-    .footer-section h3 {
-      color: #d6b46a;
-      font-size: 17px;
-      margin-bottom: 14px;
-    }
-
-    .footer-section p,
-    .footer-section a,
-    .footer-section li {
-      color: #f6efe4;
-      font-size: 14px;
-      margin-bottom: 8px;
-      display: block;
-    }
-
-    .footer-section ul { list-style: none; }
-
-    footer {
-      background: #020e19;
-      color: #d7d7d7;
-      text-align: center;
-      padding: 18px;
-      font-size: 12px;
-    }
-
-    @media (max-width: 1100px) {
-      .nav { flex-wrap: wrap; }
-      .services-row { grid-template-columns: repeat(3, 1fr); }
-      .carrier-grid { grid-template-columns: repeat(3, 1fr); }
-      .about-grid { grid-template-columns: 1fr; }
-      .why-box { border-left: none; padding-left: 0; }
-      .process-grid { grid-template-columns: repeat(2, 1fr); }
-      .resource-layout { grid-template-columns: 1fr; }
-      .resource-grid { grid-template-columns: repeat(2, 1fr); }
-      .footer-grid { grid-template-columns: 1fr 1fr; }
-    }
-
-    @media (max-width: 720px) {
-      .nav { align-items: flex-start; }
-      .nav-links { flex-wrap: wrap; gap: 12px; }
-      .top-phone { display: none; }
-      .hero h1 { font-size: 40px; }
-      .services-row,
-      .carrier-grid,
-      .process-grid,
-      .resource-grid,
-      .footer-grid {
-        grid-template-columns: 1fr;
-      }
-      .service, .process-card {
-        border-right: none;
-        border-bottom: 1px solid #decfb5;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KLASSIC HEALTH | Private Benefits & Retirement Advisory</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Arial,sans-serif;background:#fff;color:#102A43;line-height:1.6}
+nav{display:flex;justify-content:space-between;align-items:center;padding:20px 8%;background:white;border-bottom:1px solid #e5e7eb;position:sticky;top:0;z-index:10}
+.logo{font-size:28px;font-weight:800;color:#102A43}
+.menu a{margin-left:20px;text-decoration:none;color:#102A43;font-weight:600}
+.btn{background:#B8913A;color:white!important;padding:13px 22px;border-radius:6px;text-decoration:none;font-weight:700;display:inline-block;border:none}
+.btn-outline{background:white!important;color:#102A43!important;border:2px solid #102A43}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:center;padding:90px 8%;background:#F5F7FA}
+.hero h1{font-size:58px;line-height:1.1;margin-bottom:20px}
+.hero p{font-size:21px;color:#334E68;margin-bottom:18px}
+.hero-box{background:white;border-radius:20px;padding:45px;box-shadow:0 15px 45px rgba(0,0,0,.08)}
+.trust{background:#102A43;color:white;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding:28px 8%;text-align:center;font-weight:700}
+.section{padding:80px 8%}
+.section h2{font-size:40px;margin-bottom:15px}
+.section-intro{max-width:850px;color:#52616B;margin-bottom:35px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:25px}
+.card{background:white;padding:30px;border-radius:14px;box-shadow:0 8px 28px rgba(0,0,0,.08);border:1px solid #eef1f4}
+.card h3{margin-bottom:12px;color:#102A43}
+.card p{color:#52616B;margin-bottom:20px}
+.badge{display:inline-block;background:#F5F7FA;color:#102A43;padding:6px 10px;border-radius:20px;font-size:13px;font-weight:700;margin-bottom:12px}
+.locked{border-top:5px solid #B8913A}
+.free{border-top:5px solid #102A43}
+.about{background:#F5F7FA;text-align:center}
+.form-box{background:#102A43;color:white;padding:45px;border-radius:18px;max-width:900px;margin:auto}
+input,select,textarea{width:100%;padding:15px;margin:10px 0;border:none;border-radius:6px;font-size:16px}
+textarea{height:120px}
+footer{background:#07182e;color:white;text-align:center;padding:40px}
+hr{border:none;border-top:1px solid #d8dee6;margin:45px 0}
+@media(max-width:900px){
+nav{flex-direction:column;gap:15px}
+.menu{text-align:center}
+.menu a{display:inline-block;margin:8px}
+.hero{grid-template-columns:1fr;padding:60px 6%}
+.hero h1{font-size:40px}
+.trust{grid-template-columns:1fr}
+.section{padding:60px 6%}
+}
+</style>
 </head>
 
 <body>
 
-<header>
-  <div class="nav">
-    <div class="brand-wrap">
-      <img src="logo klassick health.jpg" onerror="this.src='logo  klassikc health.jpg'" alt="KLASSIC HEALTH Logo" class="site-logo">
-      <div>
-        <div class="brand-name">KLASSIC HEALTH</div>
-        <div class="brand-sub">LIFE & HEALTH INSURANCE BROKER</div>
-      </div>
-    </div>
+<nav>
+<div class="logo">KLASSIC HEALTH</div>
+<div class="menu">
+<a href="#solutions">Solutions</a>
+<a href="#resources">Resources</a>
+<a href="#about">About</a>
+<a href="#contact">Contact</a>
+<a class="btn" href="https://calendar.app.google/KfwcgUehv9i89Goj7" target="_blank">Schedule</a>
+</div>
+</nav>
 
-    <div class="nav-links">
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
+<section class="hero">
+<div>
+<h1>Smarter Protection. Stronger Retirement. Better Decisions.</h1>
+<p>Private Benefits & Retirement Advisory for families, professionals, business owners, and retirees.</p>
+<p>Health Insurance • Medicare • Life Insurance • IUL • Retirement Planning • Small Business Benefits</p>
+<br>
+<a class="btn" href="https://calendar.app.google/KfwcgUehv9i89Goj7" target="_blank">Schedule Consultation</a>
+<a class="btn btn-outline" href="#resources">View Resources</a>
+</div>
 
-      <div class="dropdown">
-        <button class="dropbtn">Services ▾</button>
-        <div class="dropdown-content">
-          <a href="#services">Health Insurance</a>
-          <a href="#services">Medicare Planning</a>
-          <a href="#services">Life Insurance</a>
-          <a href="#services">Retirement & IUL</a>
-          <a href="#services">Small Business Benefits</a>
-          <a href="#services">Supplemental Protection</a>
-        </div>
-      </div>
-
-      <a href="assets/medicare-checklist.pdf" target="_blank">Medicare Checklist</a>
-
-<a href="assets/aca-vs-private.pdf" target="_blank">ACA vs Private Health Insurance</a>
-
-<a href="assets/life-insurance-guide.pdf" target="_blank">Life Insurance Buyer's Guide</a>
-
-<a href="assets/hospital-indemnity-guide.pdf" target="_blank">Hospital Indemnity Protection Guide</a>
-
-<a href="assets/retirement-strategy.pdf" target="_blank">Retirement Strategy Guide</a>
-
-<a href="assets/THE TAX-FREE RETIREMENT BLUEPRINT.pdf" target="_blank">Tax-Free Retirement Blueprint</a>
-
-<a href="assets/small-business-benefits-guide.pdf" target="_blank">Small Business Benefits Guide</a>
-
-<a href="#resources">View Resource Library</a>
-
-      <a href="#process">Why Us</a>
-      <a href="#contact">Contact</a>
-    </div>
-
-    <div class="top-phone">☎ 954-998-2727</div>
-
-    <a class="btn" href="https://calendar.app.google/KfwcgUehv9i89Goj7" target="_blank">Schedule Appointment</a>
-  </div>
-</header>
-
-<section id="home" class="hero">
-  <div class="hero-inner">
-    <div class="hero-content">
-      <h1>Private Health, Medicare & Retirement Guidance for Every Stage of Life.</h1>
-      <div class="gold-line"></div>
-      <p>
-        A structured advisory approach for individuals, families, retirees, and business owners who want clarity, protection, and long-term planning.
-      </p>
-      <div class="hero-actions">
-        <a class="btn" href="https://calendar.app.google/KfwcgUehv9i89Goj7" target="_blank">Schedule a Consultation</a>
-        <a class="btn light" href="#contact">Get a Quote</a>
-      </div>
-    </div>
-  </div>
+<div class="hero-box">
+<h2>Start With a Coverage Review</h2>
+<p>Get guidance based on your age, state, budget, family needs, and long-term goals.</p>
+<p><strong>Marcos Roldan</strong><br>Independent Health & Life Insurance Broker</p>
+<p>📞 954-998-2727<br>📧 mroldan@agentusabg.com</p>
+</div>
 </section>
 
-<section id="services">
-  <div class="container">
-    <div class="section-label">Our Services</div>
-    <h2 class="section-title">Solutions that protect what matters most.</h2>
-    <p class="section-intro">
-      We help individuals, families, retirees, and business owners find the right coverage with personalized service.
-    </p>
+<div class="trust">
+<div>Independent Broker</div>
+<div>Multi-State Licensed</div>
+<div>15+ Years Healthcare Experience</div>
+<div>Personalized Coverage Reviews</div>
+</div>
 
-    <div class="services-row">
-      <div class="service">
-        <div class="service-icon">♡</div>
-        <h3>Health Insurance</h3>
-        <p>Private health, ACA marketplace, family, and self-employed options.</p>
-      </div>
+<section id="solutions" class="section">
+<h2>Advisory Solutions</h2>
+<p class="section-intro">KLASSIC HEALTH helps clients compare coverage options and build protection strategies around health, life, Medicare, retirement, and business needs.</p>
 
-      <div class="service">
-        <div class="service-icon">✚</div>
-        <h3>Medicare Planning</h3>
-        <p>Medicare Advantage, Supplement, Part D, and enrollment support.</p>
-      </div>
+<div class="cards">
+<div class="card">
+<h3>Health Insurance</h3>
+<p>Private health plans, ACA reviews, family coverage, and self-employed options.</p>
+</div>
 
-      <div class="service">
-        <div class="service-icon">👥</div>
-        <h3>Life Insurance</h3>
-        <p>Term, whole life, final expense, and living benefits protection.</p>
-      </div>
+<div class="card">
+<h3>Medicare Planning</h3>
+<p>Enrollment guidance, Medicare education, supplements, and plan reviews.</p>
+</div>
 
-      <div class="service">
-        <div class="service-icon">↗</div>
-        <h3>Retirement & IUL</h3>
-        <p>Indexed Universal Life strategies for protection and retirement planning.</p>
-      </div>
+<div class="card">
+<h3>Life Insurance</h3>
+<p>Term life, whole life, final expense, living benefits, and family protection.</p>
+</div>
 
-      <div class="service">
-        <div class="service-icon">▣</div>
-        <h3>Small Business Benefits</h3>
-        <p>Benefit solutions for owners, employees, and contractors.</p>
-      </div>
+<div class="card">
+<h3>IUL & Retirement</h3>
+<p>Tax-advantaged retirement strategies, income planning, and legacy protection.</p>
+</div>
 
-      <div class="service">
-        <div class="service-icon">🛡</div>
-        <h3>Supplemental Protection</h3>
-        <p>Hospital indemnity, accident, critical illness, and extra financial security.</p>
-      </div>
-    </div>
-  </div>
+<div class="card">
+<h3>Small Business Benefits</h3>
+<p>Flexible benefit options for business owners, employees, and self-employed professionals.</p>
+</div>
+</div>
 </section>
 
-<section class="carrier-section">
-  <div class="carrier-inner">
-    <div class="carrier-title">Access to Leading Insurance & Benefit Solutions</div>
-    <div class="carrier-grid">
-      <div class="carrier">Aetna</div>
-      <div class="carrier">UnitedHealthcare</div>
-      <div class="carrier">Humana</div>
-      <div class="carrier">Mutual of Omaha</div>
-      <div class="carrier">ManhattanLife</div>
-      <div class="carrier">Philadelphia American</div>
-      <div class="carrier">Transamerica</div>
-      <div class="carrier">Ethos</div>
-      <div class="carrier">PSM</div>
-    </div>
-  </div>
+<section id="resources" class="section">
+<h2>KLASSIC HEALTH Resource Vault</h2>
+<p class="section-intro">Download free guides or request access to advanced retirement resources that are reviewed with you during a strategy session.</p>
+
+<h2>Free Downloadable Guides</h2>
+
+<div class="cards">
+
+<div class="card free">
+<span class="badge">Free Download</span>
+<h3>Medicare Checklist</h3>
+<p>Prepare for Medicare enrollment and annual coverage reviews.</p>
+<a class="btn" href="assets/medicare-checklist.pdf" target="_blank">Download Guide</a>
+</div>
+
+<div class="card free">
+<span class="badge">Free Download</span>
+<h3>ACA vs Private Health Insurance</h3>
+<p>Compare ACA marketplace plans and private coverage options.</p>
+<a class="btn" href="assets/aca-vs-private.pdf" target="_blank">Download Guide</a>
+</div>
+
+<div class="card free">
+<span class="badge">Free Download</span>
+<h3>Life Insurance Buyer's Guide</h3>
+<p>Understand term, whole life, IUL, and family protection basics.</p>
+<a class="btn" href="assets/life-insurance-guide.pdf" target="_blank">Download Guide</a>
+</div>
+
+<div class="card free">
+<span class="badge">Free Download</span>
+<h3>Hospital Indemnity Guide</h3>
+<p>Learn how hospital cash benefits may help reduce financial stress.</p>
+<a class="btn" href="assets/hospital-indemnity-guide.pdf" target="_blank">Download Guide</a>
+</div>
+
+<div class="card free">
+<span class="badge">Free Download</span>
+<h3>Small Business Benefits Guide</h3>
+<p>Compare group coverage and alternative employee benefit strategies.</p>
+<a class="btn" href="assets/small-business-benefits-guide.pdf" target="_blank">Download Guide</a>
+</div>
+
+</div>
+
+<hr>
+
+<h2>Advanced Retirement Resources</h2>
+<p class="section-intro">These resources are available by request. Schedule a brief strategy session so Marcos can review your goals and provide the correct guide.</p>
+
+<div class="cards">
+
+<div class="card locked">
+<span class="badge">By Request</span>
+<h3>Tax-Free Retirement Blueprint</h3>
+<p>For clients interested in tax-advantaged retirement income and IUL strategies.</p>
+<a class="btn" href="#retirement-request">Request Access</a>
+</div>
+
+<div class="card locked">
+<span class="badge">By Request</span>
+<h3>Retirement Strategy Guide</h3>
+<p>Compare IUL, Roth IRA, 401(k), flexibility, retirement timing, and accumulation strategies.</p>
+<a class="btn" href="#retirement-request">Request Access</a>
+</div>
+
+<div class="card locked">
+<span class="badge">By Request</span>
+<h3>Entrepreneur Wealth Blueprint</h3>
+<p>For business owners and self-employed professionals seeking long-term protection strategies.</p>
+<a class="btn" href="#retirement-request">Request Access</a>
+</div>
+
+</div>
 </section>
 
-<section id="about" class="about-section">
-  <div class="container">
-    <div class="about-grid">
-      <div class="about-photo">
-        <img src="MY professional profile pic.jpg" alt="Marcos Roldan">
-      </div>
+<section id="retirement-request" class="section">
+<div class="form-box">
+<h2>Request Advanced Retirement Resources</h2>
+<p>Submit your information and schedule a strategy session to receive the appropriate retirement resource.</p>
 
-      <div class="about-copy">
-        <div class="section-label">About Marcos Roldan</div>
-        <h2>Guidance. Experience. Strategy.</h2>
+<form name="retirement-resource-request" method="POST" data-netlify="true">
+<input type="hidden" name="form-name" value="retirement-resource-request">
 
-        <p>
-          Marcos Roldan is an independent Health and Life Insurance Broker with over 15 years of experience in healthcare, Medicare consulting, client education, insurance support, and benefits planning.
-        </p>
+<input type="text" name="Full Name" placeholder="Full Name" required>
+<input type="tel" name="Phone" placeholder="Phone Number" required>
+<input type="email" name="Email" placeholder="Email Address" required>
+<input type="text" name="State" placeholder="State">
 
-        <p>
-          Before building KLASSIC HEALTH, Marcos worked in healthcare operations and Medicare-focused insurance environments, helping individuals and families understand their coverage, providers, prescriptions, enrollment timelines, and financial protection options.
-        </p>
+<select name="Resource Requested" required>
+<option value="">Select Resource</option>
+<option>Tax-Free Retirement Blueprint</option>
+<option>Retirement Strategy Guide</option>
+<option>Entrepreneur Wealth Blueprint</option>
+</select>
 
-        <p>
-          Today, Marcos helps clients navigate every stage of life — from private health insurance under 65, to Medicare planning, life insurance protection, supplemental benefits, small business solutions, and retirement strategies using Indexed Universal Life.
-        </p>
+<select name="Age Range">
+<option value="">Current Age</option>
+<option>30-39</option>
+<option>40-49</option>
+<option>50-59</option>
+<option>60-70+</option>
+</select>
 
-        <p>
-          As an independent broker, Marcos is not limited to one carrier. He compares multiple insurance options to help create personalized strategies that align with each client’s health needs, budget, family protection goals, and long-term retirement objectives.
-        </p>
+<textarea name="Retirement Goals" placeholder="Tell me about your retirement goals"></textarea>
 
-        <p>
-          His mission is simple: <strong>Educate. Protect. Empower.</strong>
-        </p>
-      </div>
+<button class="btn" type="submit">Submit Request</button>
+</form>
 
-      <div class="why-box">
-        <div class="why-item">
-          <h4><span class="check">✓</span>Independent Broker</h4>
-          <p>Not tied to one insurance company.</p>
-        </div>
-
-        <div class="why-item">
-          <h4><span class="check">✓</span>Licensed Multi-State</h4>
-          <p>Serving clients across multiple states.</p>
-        </div>
-
-        <div class="why-item">
-          <h4><span class="check">✓</span>Client Focused</h4>
-          <p>Personalized solutions designed around your goals.</p>
-        </div>
-
-        <div class="why-item">
-          <h4><span class="check">✓</span>Confidential & Secure</h4>
-          <p>Your information is handled with care.</p>
-        </div>
-      </div>
-    </div>
-  </div>
+<br>
+<a class="btn btn-outline" href="https://calendar.app.google/KfwcgUehv9i89Goj7" target="_blank">Schedule My Strategy Session</a>
+</div>
 </section>
 
-<section id="process" class="process-section">
-  <div class="container">
-    <div class="process-title-wrap">
-      <div class="line"></div>
-      <h2>A Structured Planning Approach</h2>
-      <div class="line"></div>
-    </div>
-
-    <div class="process-grid">
-      <div class="process-card">
-        <div class="process-num">01</div>
-        <h3>Health Coverage Foundation</h3>
-        <p>Private health insurance, ACA reviews, Medicare planning, prescriptions, and provider access.</p>
-      </div>
-
-      <div class="process-card">
-        <div class="process-num">02</div>
-        <h3>Financial Protection Layer</h3>
-        <p>Life insurance, hospital indemnity, accident coverage, and critical illness protection.</p>
-      </div>
-
-      <div class="process-card">
-        <div class="process-num">03</div>
-        <h3>Retirement Strategy</h3>
-        <p>Indexed Universal Life, tax-advantaged strategies, and retirement income planning.</p>
-      </div>
-
-      <div class="process-card">
-        <div class="process-num">04</div>
-        <h3>Legacy & Business Planning</h3>
-        <p>Family protection, small business benefits, and long-term financial strategies.</p>
-      </div>
-    </div>
-  </div>
+<section id="about" class="section about">
+<h2>Meet Marcos Roldan</h2>
+<p style="max-width:850px;margin:auto;">
+Marcos Roldan is an independent health and life insurance broker with over 15 years of healthcare and insurance experience. Through KLASSIC HEALTH, Marcos helps families, professionals, retirees, and business owners make informed decisions about health coverage, Medicare, life insurance, and retirement planning.
+</p>
 </section>
 
-<section id="resources" class="resources-section">
-  <div class="container">
-    <div class="resource-layout">
-      <div class="resource-title">
-        <div class="section-label">Client Resource Library</div>
-        <h2>Knowledge helps you make better decisions.</h2>
-        <p>Complimentary guides and tools to help you make informed coverage decisions.</p>
-      </div>
+<section id="contact" class="section">
+<div class="form-box">
+<h2>Request a Coverage Review</h2>
+<p>Need help with health insurance, Medicare, life insurance, or benefits planning? Submit your information below.</p>
 
-      <div class="resource-grid">
-        <div class="resource-card">
-          <h3>Luxury Medicare Getting-Ready Checklist</h3>
-          <p>Step-by-step checklist to prepare for enrollment.</p>
-          <a href="assets/Luxury Medicare Getting-Ready Checklist.pdf" target="_blank">Download PDF →</a>
-        </div>
+<form name="coverage-review" method="POST" data-netlify="true">
+<input type="hidden" name="form-name" value="coverage-review">
 
-        <div class="resource-card">
-          <h3>ACA vs Private Health Insurance Guide</h3>
-          <p>Compare options and find the right fit for you.</p>
-          <a href="assets/ACA-vs-Private-Health-Insurance.pdf" target="_blank">Download PDF →</a>
-        </div>
+<input type="text" name="Full Name" placeholder="Full Name" required>
+<input type="tel" name="Phone" placeholder="Phone Number" required>
+<input type="email" name="Email" placeholder="Email Address" required>
+<input type="text" name="State" placeholder="State">
 
-        <div class="resource-card">
-          <h3>Retirement Strategy Guide</h3>
-          <p>Learn retirement concepts for long-term planning.</p>
-          <a href="assets/Retirement-Strategy.pdf" target="_blank">Download PDF →</a>
-        </div>
+<select name="Coverage Needed">
+<option value="">Coverage Needed</option>
+<option>Health Insurance</option>
+<option>Medicare</option>
+<option>Life Insurance</option>
+<option>IUL / Retirement Planning</option>
+<option>Small Business Benefits</option>
+</select>
 
-        <div class="resource-card">
-          <h3>IUL Wealth Blueprint</h3>
-          <p>Explore protection, cash value, and retirement flexibility.</p>
-          <a href="assets/The Entrepreneur's Wealth Blueprint.pdf" target="_blank">Download PDF →</a>
-        </div>
-      </div>
+<textarea name="Message" placeholder="Tell me how I can help"></textarea>
 
-      <div class="quote-box">
-        <h3>Get Your Free Quote</h3>
-        <p>We’ll help you find the right coverage for your needs and budget.</p>
-        <a class="btn gold" href="https://calendar.app.google/KfwcgUehv9i89Goj7" target="_blank">Get a Quote</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="contact" class="footer-section">
-  <div class="container">
-    <div class="footer-grid">
-      <div>
-        <img src="logo klassick health.jpg" onerror="this.src='logo  klassikc health.jpg'" alt="KLASSIC HEALTH Logo" class="footer-logo">
-        <p>Independent guidance. Trusted advice. Coverage that fits your life and your future.</p>
-      </div>
-
-      <div>
-        <h3>Quick Links</h3>
-        <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#resources">Resources</a></li>
-          <li><a href="#process">Why Choose Us</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <h3>Contact</h3>
-        <p>954-998-2727</p>
-        <p>mroldan@agentusabg.com</p>
-        <p>usabg.com/mroldan</p>
-        <p>Serving Florida & multiple states</p>
-      </div>
-
-      <div>
-        <h3>Office Hours</h3>
-        <p>Monday – Friday</p>
-        <p>9:00 AM – 6:00 PM</p>
-        <p>By Appointment</p>
-        <a class="btn gold" href="https://calendar.app.google/KfwcgUehv9i89Goj7" target="_blank">Schedule Now</a>
-      </div>
-    </div>
-  </div>
+<button class="btn" type="submit">Submit Coverage Request</button>
+</form>
+</div>
 </section>
 
 <footer>
-  <p>© 2026 KLASSIC HEALTH. All rights reserved.</p>
-  <p>Insurance products are subject to eligibility, underwriting, carrier approval, plan availability, and state regulations.</p>
+<h3>KLASSIC HEALTH</h3>
+<p>Private Benefits & Retirement Advisory</p>
+<p>Marcos Roldan | Independent Health & Life Insurance Broker</p>
+<p>954-998-2727 | mroldan@agentusabg.com</p>
+<p style="font-size:13px;margin-top:20px;">Educational information only. Product availability, eligibility, underwriting, benefits, and limitations vary by carrier and state.</p>
 </footer>
 
 </body>
