@@ -1,354 +1,283 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KLASSIC HEALTH</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KLASSIC HEALTH | Private Health & Wealth Advisory</title>
 
-<style>
-:root{
---cream:#F8F6EF;
---linen:#F4EEE7;
---terracotta:#C56A3D;
---espresso:#3A2E27;
---muted:#6F665E;
---border:rgba(58,46,39,.15);
---shadow:0 18px 50px rgba(58,46,39,.12);
-}
+  <style>
+    :root{
+      --cream:#f7f2ea;
+      --cream-2:#fbf7f2;
+      --terracotta:#b86b4b;
+      --text:#2a2a2a;
+      --muted:#6b6b6b;
+      --border:#e7ded4;
+      --shadow: 0 10px 30px rgba(0,0,0,0.06);
+    }
 
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Arial,sans-serif;background:var(--cream);color:var(--espresso);line-height:1.6}
-img{width:100%;display:block}
-a{text-decoration:none;color:inherit}
-.container{max-width:1200px;margin:auto;padding:0 24px}
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family: Georgia, "Times New Roman", serif;
+    }
 
-h1,h2,h3{font-family:Georgia,serif;font-weight:500}
-h1{font-size:clamp(44px,6vw,72px)}
-h2{font-size:clamp(32px,4vw,48px)}
+    body{
+      background: var(--cream);
+      color: var(--text);
+      line-height:1.7;
+    }
 
-.btn{
-display:inline-block;
-background:var(--terracotta);
-color:#fff;
-padding:14px 22px;
-border-radius:10px;
-font-weight:700;
-cursor:pointer;
-}
-.btn-outline{background:#fff;border:1px solid var(--border);color:var(--espresso)}
+    /* HEADER */
+    header{
+      padding:28px 60px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      background: var(--cream-2);
+      border-bottom:1px solid var(--border);
+      position:sticky;
+      top:0;
+      z-index:10;
+    }
 
-header{
-position:sticky;top:0;
-background:rgba(248,246,239,.96);
-border-bottom:1px solid var(--border);
-z-index:10;
-}
-.nav{
-display:flex;
-justify-content:space-between;
-align-items:center;
-height:80px;
-}
+    .logo{
+      font-size:20px;
+      letter-spacing:2px;
+      font-weight:500;
+    }
 
-.hero{
-padding:80px 0;
-background:linear-gradient(180deg,var(--cream),var(--linen));
-}
-.hero-grid{
-display:grid;
-grid-template-columns:1.2fr 1fr;
-gap:40px;
-align-items:center;
-}
-.hero img{
-border-radius:26px;
-height:520px;
-object-fit:cover;
-box-shadow:var(--shadow);
-}
+    nav a{
+      margin-left:22px;
+      text-decoration:none;
+      color:var(--muted);
+      font-size:14px;
+      transition:0.2s ease;
+    }
 
-.tag{color:var(--terracotta);font-weight:700}
+    nav a:hover{
+      color:var(--terracotta);
+    }
 
-section{padding:70px 0}
-.center{text-align:center;max-width:800px;margin:auto}
+    /* HERO */
+    .hero{
+      padding:100px 60px;
+      text-align:center;
+      background: linear-gradient(to bottom, var(--cream-2), var(--cream));
+    }
 
-/* VAULT */
-.vault-grid{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:16px;
-}
-.vault-card{
-background:#fff;
-border:1px solid var(--border);
-padding:18px;
-border-radius:16px;
-cursor:pointer;
-text-align:center;
-}
+    .hero h1{
+      font-size:44px;
+      font-weight:500;
+      margin-bottom:18px;
+      letter-spacing:0.5px;
+    }
 
-/* STAGE */
-.stage{
-background:#fff;
-border-radius:20px;
-border:1px solid var(--border);
-box-shadow:var(--shadow);
-}
-.tabs{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-}
-.tab{
-padding:14px;
-background:var(--linen);
-border:none;
-font-weight:700;
-cursor:pointer;
-}
-.tab.active{background:var(--terracotta);color:#fff}
+    .hero p{
+      max-width:650px;
+      margin:0 auto 30px auto;
+      color:var(--muted);
+      font-size:18px;
+    }
 
-.stage-content{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:25px;
-padding:30px;
-}
+    .btn{
+      display:inline-block;
+      padding:14px 28px;
+      background:var(--terracotta);
+      color:white;
+      text-decoration:none;
+      border-radius:30px;
+      font-size:14px;
+      box-shadow: var(--shadow);
+    }
 
-/* FORM */
-form{
-background:#fff;
-padding:24px;
-border-radius:18px;
-border:1px solid var(--border);
-}
-input,select,textarea{
-width:100%;
-padding:12px;
-margin:8px 0 14px;
-border:1px solid var(--border);
-border-radius:10px;
-}
+    /* SECTIONS */
+    section{
+      padding:90px 60px;
+      max-width:1100px;
+      margin:auto;
+    }
 
-/* MODAL */
-.modal{
-display:none;
-position:fixed;
-top:0;left:0;
-width:100%;height:100%;
-background:rgba(0,0,0,.6);
-justify-content:center;
-align-items:center;
-z-index:9999;
-}
-.modal-box{
-background:#fff;
-padding:26px;
-width:92%;
-max-width:520px;
-border-radius:16px;
-box-shadow:var(--shadow);
-}
+    h2{
+      font-size:28px;
+      margin-bottom:18px;
+      font-weight:500;
+    }
 
-/* FOOTER */
-footer{
-padding:50px 0;
-border-top:1px solid var(--border);
-font-size:14px;
-color:var(--muted);
-}
+    p{
+      color:var(--muted);
+      margin-bottom:18px;
+    }
 
-@media(max-width:900px){
-.hero-grid,.stage-content{grid-template-columns:1fr}
-.vault-grid{grid-template-columns:1fr}
-nav{display:none}
-}
-</style>
+    /* CARDS */
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(250px,1fr));
+      gap:28px;
+      margin-top:40px;
+    }
+
+    .card{
+      background:var(--cream-2);
+      padding:28px;
+      border:1px solid var(--border);
+      border-radius:14px;
+      box-shadow: var(--shadow);
+    }
+
+    .card h3{
+      margin-bottom:10px;
+      font-weight:500;
+    }
+
+    /* FORM */
+    .form-container{
+      background:var(--cream-2);
+      padding:40px;
+      border-radius:14px;
+      border:1px solid var(--border);
+      box-shadow: var(--shadow);
+      max-width:700px;
+      margin-top:40px;
+    }
+
+    input, textarea{
+      width:100%;
+      padding:14px;
+      margin-bottom:16px;
+      border:1px solid var(--border);
+      border-radius:10px;
+      background:white;
+      font-size:14px;
+    }
+
+    textarea{
+      min-height:120px;
+      resize:none;
+    }
+
+    button{
+      background:var(--terracotta);
+      color:white;
+      border:none;
+      padding:14px 24px;
+      border-radius:30px;
+      cursor:pointer;
+      font-size:14px;
+    }
+
+    /* FOOTER */
+    footer{
+      padding:60px;
+      text-align:center;
+      font-size:13px;
+      color:var(--muted);
+      border-top:1px solid var(--border);
+      background:var(--cream-2);
+    }
+
+    /* MOBILE */
+    @media(max-width:768px){
+      header, section, .hero{
+        padding:40px 20px;
+      }
+
+      .hero h1{
+        font-size:32px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
 <header>
-<div class="container nav">
-<h3>KLASSIC HEALTH</h3>
-<a class="btn" href="#contact">Schedule</a>
-</div>
+  <div class="logo">KLASSIC HEALTH</div>
+  <nav>
+    <a href="#explore">Explore My Stage</a>
+    <a href="#private">Private Health</a>
+    <a href="#wealth">Health & Wealth</a>
+    <a href="#medicare">Medicare</a>
+    <a href="#resources">Resources</a>
+    <a href="#meet">Meet Marcos</a>
+    <a href="#schedule">Schedule Review</a>
+  </nav>
 </header>
 
-<!-- HERO -->
-<section class="hero">
-<div class="container hero-grid">
-
-<div>
-<p class="tag">Private Health • Medicare • Retirement Strategy</p>
-<h1>Protect Your Health. Grow Your Wealth.</h1>
-<p>Personalized insurance and retirement strategies built for your stage of life.</p>
-<br>
-<a class="btn" href="#vault">Explore Vault</a>
-<a class="btn btn-outline" href="#contact">Schedule Review</a>
+<div class="hero">
+  <h1>Protecting Your Health. Elevating Your Wealth.</h1>
+  <p>
+    A private advisory experience designed to help you navigate health coverage, retirement strategy, and long-term financial protection with clarity and confidence.
+  </p>
+  <a class="btn" href="#schedule">Schedule a Private Review</a>
 </div>
 
-<img src="images/family-sofa.jpg">
+<section id="explore">
+  <h2>Explore My Stage</h2>
+  <p>Find guidance based on where you are in life and what you’re building next.</p>
 
-</div>
+  <div class="grid">
+    <div class="card">
+      <h3>Starting Out</h3>
+      <p>Build protection and structure early without overpaying or overcomplicating coverage.</p>
+    </div>
+    <div class="card">
+      <h3>Growing Family</h3>
+      <p>Balance health protection, income stability, and long-term planning for your household.</p>
+    </div>
+    <div class="card">
+      <h3>Pre-Retirement</h3>
+      <p>Align health coverage with wealth strategies and future income protection.</p>
+    </div>
+  </div>
 </section>
 
-<!-- VAULT -->
-<section id="vault">
-<div class="container center">
-<p class="tag">Client Vault</p>
-<h2>Resources & Guides</h2>
-</div>
-
-<div class="container vault-grid">
-
-<div class="vault-card" onclick="openVault('public')">
-Private Health Vault
-</div>
-
-<div class="vault-card" onclick="openVault('medicare')">
-Medicare Vault
-</div>
-
-<div class="vault-card" onclick="openVault('retirement')">
-Retirement Vault (LOCKED)
-</div>
-
-</div>
+<section id="private">
+  <h2>Private Health Solutions</h2>
+  <p>Access coverage options outside of traditional group plans with more control and flexibility.</p>
 </section>
 
-<!-- STAGE -->
-<section>
-<div class="container center">
-<p class="tag">Your Life Stage</p>
-<h2>Personalized Planning</h2>
-</div>
-
-<div class="container stage">
-
-<div class="tabs">
-<button class="tab active" onclick="setStage('40',this)">40s</button>
-<button class="tab" onclick="setStage('30',this)">30s</button>
-<button class="tab" onclick="setStage('50',this)">50s</button>
-<button class="tab" onclick="setStage('60',this)">60+</button>
-</div>
-
-<div class="stage-content">
-<div>
-<h2 id="stageTitle">Growing Wealth</h2>
-<p id="stageText">Build and protect your financial future.</p>
-</div>
-
-<div id="stagePills"></div>
-</div>
-
-</div>
+<section id="wealth">
+  <h2>Health & Wealth Strategy</h2>
+  <p>Integrating indexed strategies, protection planning, and long-term financial structure.</p>
 </section>
 
-<!-- CONTACT -->
-<section id="contact">
-<div class="container">
-<h2>Submit Your Information</h2>
-
-<form name="klassic-leads" method="POST" data-netlify="true">
-
-<input type="hidden" name="form-name" value="klassic-leads">
-<input type="hidden" name="source" value="klassic-health-site">
-<input type="hidden" name="funnel_stage" value="new_lead">
-
-<label>Name</label>
-<input name="name" required>
-
-<label>Phone</label>
-<input name="phone" required>
-
-<label>Email</label>
-<input type="email" name="email" required>
-
-<label>Interest</label>
-<select name="interest">
-<option>Private Health</option>
-<option>Medicare</option>
-<option>IUL / Retirement</option>
-<option>Life Insurance</option>
-</select>
-
-<label>Lead Type</label>
-<select name="lead_type">
-<option>Cold</option>
-<option>Warm</option>
-<option>Hot</option>
-</select>
-
-<label>Message</label>
-<textarea name="message"></textarea>
-
-<button class="btn" type="submit">Submit</button>
-
-</form>
-</div>
+<section id="medicare">
+  <h2>Medicare Guidance</h2>
+  <p>Simplified support to help you understand options, timing, and coverage alignment.</p>
 </section>
 
-<!-- MODAL -->
-<div class="modal" id="modal">
-<div class="modal-box">
-<h2 id="modalTitle">Access Required</h2>
-<p id="modalText">Submit your info to continue.</p>
+<section id="resources">
+  <h2>Resources</h2>
+  <p>Educational tools and insights to help you make informed decisions without pressure.</p>
+</section>
 
-<form onsubmit="handleGate(event)">
-<input id="name" placeholder="Name" required>
-<input id="email" placeholder="Email" required>
+<section id="meet">
+  <h2>Meet Marcos</h2>
+  <p>
+    I help individuals and families build clarity around private health coverage and long-term financial protection through a structured advisory approach.
+  </p>
+</section>
 
-<button class="btn" type="submit">Continue</button>
-</form>
+<section id="schedule">
+  <h2>Schedule Your Private Review</h2>
+  <p>Submit your information and I’ll reach out to you directly.</p>
 
-<br>
-<button onclick="closeModal()" style="border:none;background:none;font-weight:700;">Close</button>
-</div>
-</div>
+  <div class="form-container">
+    <form action="mailto:your@email.com" method="post" enctype="text/plain">
+      <input type="text" name="name" placeholder="Full Name" required />
+      <input type="email" name="email" placeholder="Email Address" required />
+      <input type="tel" name="phone" placeholder="Phone Number" required />
+      <textarea name="message" placeholder="What are you looking for help with?"></textarea>
+      <button type="submit">Request Consultation</button>
+    </form>
+  </div>
+</section>
 
-<!-- SCRIPT -->
-<script>
-const stages={
-"30":{title:"Building Foundations",text:"Start strong financially.",pills:["Health","Term Life","Income"]},
-"40":{title:"Growing Wealth",text:"Build and protect assets.",pills:["PPO","IUL","Tax Strategy"]},
-"50":{title:"Preparing Ahead",text:"Plan retirement transition.",pills:["Medicare","Income","Legacy"]},
-"60":{title:"Retirement Protection",text:"Secure healthcare + income.",pills:["Medicare","Estate","Final Expense"]}
-};
-
-function setStage(k,btn){
-document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
-btn.classList.add('active');
-
-document.getElementById('stageTitle').innerText=stages[k].title;
-document.getElementById('stageText').innerText=stages[k].text;
-document.getElementById('stagePills').innerHTML=
-stages[k].pills.map(p=>`<span style="display:inline-block;background:#F4EEE7;padding:8px;border-radius:999px;margin:4px;">${p}</span>`).join('');
-}
-
-/* VAULT */
-function openVault(type){
-document.getElementById("modal").style.display="flex";
-
-if(type==="retirement"){
-document.getElementById("modalTitle").innerText="Retirement Vault Locked";
-document.getElementById("modalText").innerText="Submit your info and Marcos will reach out.";
-} else {
-document.getElementById("modalTitle").innerText="Enter Email to Continue";
-document.getElementById("modalText").innerText="We will contact you shortly.";
-}
-}
-
-function closeModal(){
-document.getElementById("modal").style.display="none";
-}
-
-function handleGate(e){
-e.preventDefault();
-
-closeModal();
-alert("Thank you. Marcos will contact you shortly.");
-}
-</script>
+<footer>
+  © 2026 KLASSIC HEALTH. All rights reserved.
+</footer>
 
 </body>
 </html>
