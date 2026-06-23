@@ -1,71 +1,680 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>KLASSIC HEALTH</title>
 
-    <title>Klassic Health LLC</title>
+<style>
+:root{
+--cream:#F8F6EF;
+--linen:#F4EEE7;
+--white:#FFFDF8;
+--terracotta:#C56A3D;
+--gold:#C7A15A;
+--espresso:#3A2E27;
+--muted:#70665E;
+--border:rgba(58,46,39,.14);
+--shadow:0 20px 50px rgba(58,46,39,.12);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:var(--cream);color:var(--espresso);line-height:1.6}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+.container{max-width:1200px;margin:auto;padding:0 28px}
+h1,h2,h3{font-family:Georgia,serif;font-weight:500;line-height:1.05}
+h1{font-size:clamp(42px,6vw,76px)}
+h2{font-size:clamp(32px,4vw,52px)}
+h3{font-size:26px}
+p{color:var(--muted)}
+.btn{display:inline-block;background:var(--terracotta);color:white;padding:14px 24px;border-radius:10px;font-weight:700}
+.btn-outline{background:white;color:var(--espresso);border:1px solid var(--border)}
+header{background:rgba(248,246,239,.96);position:sticky;top:0;z-index:10;border-bottom:1px solid var(--border)}
+.nav{height:82px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{height:58px;width:auto}
+nav{display:flex;gap:20px;align-items:center;font-size:14px;font-weight:700}
+.hero{padding:55px 0;background:linear-gradient(180deg,var(--cream),var(--linen))}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.tag{color:var(--terracotta);font-weight:700;margin-bottom:18px}
+.hero p{margin:18px 0;font-size:17px}
+.hero-img{border-radius:28px;box-shadow:var(--shadow);height:560px;width:100%;object-fit:cover}
+.actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:25px}
+.stats{background:var(--linen);padding:28px 0}
+.stats-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.stat{background:white;border:1px solid var(--border);border-radius:20px;padding:22px;text-align:center}
+.stat strong{font-family:Georgia,serif;color:var(--terracotta);font-size:34px;display:block}
+section{padding:70px 0}
+.center{text-align:center;max-width:800px;margin:0 auto 36px}
+.stage-box{background:white;border:1px solid var(--border);border-radius:28px;overflow:hidden;box-shadow:var(--shadow)}
+.tabs{display:grid;grid-template-columns:repeat(4,1fr)}
+.tab{padding:18px;background:var(--linen);border:0;border-right:1px solid var(--border);font-weight:800}
+.tab.active{background:var(--terracotta);color:white}
+.stage-content{display:grid;grid-template-columns:.9fr 1.1fr;gap:30px;padding:32px}
+.stage-content img{height:430px;width:100%;object-fit:cover;border-radius:22px}
+.pills{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0}
+.pill{background:var(--linen);border:1px solid var(--border);padding:9px 12px;border-radius:999px;font-size:13px;font-weight:700}
+.example{background:var(--linen);border-radius:20px;padding:22px;margin:20px 0}
+.metrics{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:14px}
+.metric{background:white;border:1px solid var(--border);border-radius:14px;padding:14px}
+.metric span{font-size:12px;color:var(--muted);font-weight:700}
+.metric strong{display:block;color:var(--terracotta);font-size:22px}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.card{background:white;border:1px solid var(--border);border-radius:22px;padding:24px;box-shadow:0 10px 25px rgba(58,46,39,.06)}
+.card h3{margin-bottom:10px}
+.exclusive{background:var(--linen)}
+.exclusive .cards{grid-template-columns:repeat(3,1fr)}
+.marcos{display:grid;grid-template-columns:.85fr 1.15fr;gap:40px;align-items:center}
+.marcos img{border-radius:28px;height:480px;width:100%;object-fit:cover;object-position:center 5%;box-shadow:var(--shadow)}
+.quote{border-left:4px solid var(--terracotta);padding-left:18px;margin:20px 0;font-family:Georgia,serif;color:var(--espresso);font-size:20px}
+.form-section{background:var(--linen)}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px}
+form{background:white;border:1px solid var(--border);border-radius:24px;padding:28px;box-shadow:var(--shadow)}
+input,select,textarea{width:100%;padding:14px;margin:8px 0 14px;border:1px solid var(--border);border-radius:10px;font:inherit}
+textarea{min-height:120px}
+footer{background:var(--cream);border-top:1px solid var(--border);padding:42px 0}
+.footer-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr 1fr;gap:25px}
+footer p, footer a{display:block;color:var(--muted);font-size:14px;margin:6px 0}
+.disclaimer{font-size:12px;color:var(--muted);margin-top:25px;border-top:1px solid var(--border);padding-top:18px}
+@media(max-width:900px){
+nav{display:none}
+.hero-grid,.stage-content,.marcos,.form-grid{grid-template-columns:1fr}
+.stats-grid,.cards,.exclusive .cards,.footer-grid{grid-template-columns:1fr 1fr}
+  .vault-row{
+grid-template-columns:repeat(2,1fr);
+}
 
-    <meta name="description" content="Klassic Health LLC - Home Healthcare Services">
-    <meta http-equiv="refresh" content="0; url=https://mroldan753.github.io/klassic-health-website/">
+.vault-head{
+flex-direction:column;
+align-items:flex-start;
+}
+.hero-img,.stage-content img,.marcos img{height:auto}
+  .marcos-luxury-grid{grid-template-columns:1fr}
+.marcos-info-card{border-right:0}
+.marcos-photo-card img{height:auto}
+}
+@media(max-width:600px){
+  .marcos-luxury-grid{
+grid-template-columns:1fr;
+}
 
-    <link rel="canonical" href="https://mroldan753.github.io/klassic-health-website/">
+.marcos-info-card{
+border-right:0;
+}
 
-    <script>
-        window.location.replace("https://mroldan753.github.io/klassic-health-website/");
-    </script>
+.marcos-photo-card img{
+height:auto;
+}
 
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background: #f5f7fa;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            text-align: center;
-            color: #003366;
-        }
+.timeline-grid{
+grid-template-columns:1fr;
+}
 
-        .container {
-            max-width: 600px;
-            padding: 30px;
-        }
-
-        h1 {
-            margin-bottom: 10px;
-        }
-
-        a {
-            color: #0066cc;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-    </style>
+.timeline-row{
+grid-template-columns:1fr;
+}
+.stats-grid,.cards,.exclusive .cards,.footer-grid,.metrics{grid-template-columns:1fr}
+.tabs{grid-template-columns:1fr 1fr}
+.container{padding:0 18px}
+}
+</style>
 </head>
 
 <body>
 
-<div class="container">
-    <h1>Klassic Health LLC</h1>
-
-    <p>Redirecting you to our website...</p>
-
-    <p>
-        If you are not redirected automatically,
-        <br><br>
-        <a href="https://mroldan753.github.io/klassic-health-website/">
-            Click here to visit Klassic Health LLC
-        </a>
-    </p>
+<header>
+<div class="container nav">
+<img src="images/logo.png" class="logo" alt="KLASSIC HEALTH Logo">
+<nav>
+<a href="#stage">Explore My Stage</a>
+<a href="#private">Private Health</a>
+<a href="#wealth">Health & Wealth</a>
+<a href="#medicare">Medicare</a>
+<a href="#resources">Resources</a>
+<a href="#marcos">Meet Marcos</a>
+<a class="btn" href="#contact">Schedule Review</a>
+</nav>
 </div>
+</header>
+
+<section class="hero">
+<div class="container hero-grid">
+<div>
+<p class="tag">Private Health Benefits • Retirement Simplified • Lifelong Insurance Guidance</p>
+<h1>Protecting Your Health.<br>Growing Your Wealth.<br>Guiding You for Life.</h1>
+<p><strong>Personalized Health Strategies. Tax-Advantaged Retirement Planning. Lifelong Insurance Guidance.</strong></p>
+<p>Helping families, professionals, business owners, and retirees navigate healthcare decisions, preserve wealth, optimize retirement opportunities, and maintain confidence through every stage of life.</p>
+<p>Through access to <strong>45+ insurance carriers and solutions across 36+ states</strong>, backed by over <strong>15 years of healthcare experience</strong>, KLASSIC HEALTH delivers private health benefits, Medicare guidance, life insurance solutions, indemnity plans, short-term healthcare options, and retirement-focused strategies.</p>
+<div class="actions">
+<a class="btn" href="#stage">Explore My Stage</a>
+<a class="btn btn-outline" href="#contact">Schedule Strategy Session</a>
+</div>
+</div>
+<img src="images/family-sofa.jpg" class="hero-img" alt="Family on cream sofa">
+</div>
+</section>
+
+<section class="stats">
+<div class="container stats-grid">
+<div class="stat"><strong>45+</strong>Insurance Carriers</div>
+<div class="stat"><strong>36+</strong>States Licensed</div>
+<div class="stat"><strong>15+</strong>Years Healthcare Experience</div>
+<div class="stat"><strong>1:1</strong>Personalized Guidance</div>
+<div class="stat"><strong>Tax</strong>Advantaged Retirement Strategies</div>
+</div>
+</section>
+
+<section id="stage">
+<div class="container">
+<div class="center">
+<p class="tag">Explore Your Health & Wealth Journey</p>
+<h2>Solutions Designed Around Your Stage of Life</h2>
+<p>Your needs evolve. Your plan should too. Explore strategies designed around where you are today and where you want to be tomorrow.</p>
+</div>
+
+<div class="stage-box">
+<div class="tabs">
+<button class="tab" onclick="showStage('s30',this)">30–39<br>Building Foundations</button>
+<button class="tab active" onclick="showStage('s40',this)">40–49<br>Growing Wealth</button>
+<button class="tab" onclick="showStage('s50',this)">50–59<br>Preparing Ahead</button>
+<button class="tab" onclick="showStage('s60',this)">60+<br>Protecting Retirement</button>
+</div>
+
+<div class="stage-content">
+<img id="stageImg" src="images/family-sofa.jpg" alt="Stage of life family image">
+<div>
+<p class="tag" id="stageAge">Ages 40–49</p>
+<h2 id="stageTitle">Growing Wealth Years</h2>
+<p id="stageText">Build, protect, and grow wealth while securing your family’s future.</p>
+
+<div class="pills" id="stagePills">
+<span class="pill">Private PPO Medical</span>
+<span class="pill">Hospital Indemnity</span>
+<span class="pill">Critical Illness Coverage</span>
+<span class="pill">Indexed Universal Life</span>
+<span class="pill">Living Benefits</span>
+<span class="pill">Business & Tax Strategies</span>
+</div>
+
+<div class="example">
+<h3 id="exampleTitle">Example Illustration: Age 45</h3>
+<div class="metrics" id="metrics">
+<div class="metric"><span>Employer Plan Family</span><strong>$1,800/mo</strong></div>
+<div class="metric"><span>Private PPO Plan</span><strong>$900/mo</strong></div>
+<div class="metric"><span>Potential Annual Difference</span><strong>$10,800</strong></div>
+<div class="metric"><span>IUL Example</span><strong>$500/mo</strong></div>
+</div>
+</div>
+
+<div class="actions">
+<a class="btn"
+href="resources/stage30.pdf"
+target="_blank">
+
+Download Illustration
+
+</a>
+<a class="btn btn-outline" href="#contact">View PowerPoint</a>
+<a class="btn btn-outline" href="#contact">Schedule Review</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="resources" class="client-vault-section">
+<div class="container">
+
+<div class="vault-head">
+<div>
+<h2>The Client Vault</h2>
+<p>Your library of guides, tools, and educational resources.</p>
+</div>
+<a class="vault-browse" href="#contact">Browse All Resources →</a>
+</div>
+
+<div class="vault-row">
+
+<a class="vault-card" href="#contact">
+<img src="images/family-sofa.jpg" alt="Private Health Vault">
+<h4>Private Health Vault</h4>
+<p>20+ Resources</p>
+</a>
+
+<a class="vault-card" href="#contact">
+<img src="images/family-sofa.jpg" alt="Retirement Vault">
+<h4>Retirement Vault</h4>
+<p>15+ Resources</p>
+</a>
+
+<a class="vault-card" href="#contact">
+<img src="images/family-sofa.jpg" alt="Medicare Vault">
+<h4>Medicare Vault</h4>
+<p>10+ Resources</p>
+</a>
+
+<a class="vault-card" href="#contact">
+<img src="images/family-sofa.jpg" alt="Illustration Vault">
+<h4>Illustration Vault</h4>
+<p>25+ Examples</p>
+</a>
+
+<a class="vault-card" href="#contact">
+<img src="images/family-sofa.jpg" alt="Case Studies Vault">
+<h4>Case Studies Vault</h4>
+<p>10+ Case Studies</p>
+</a>
+
+<a class="vault-card" href="#contact">
+<img src="images/family-sofa.jpg" alt="PowerPoint Library">
+<h4>PowerPoint Library</h4>
+<p>30+ Presentations</p>
+</a>
+
+<a class="vault-card" href="#contact">
+<img src="images/family-sofa.jpg" alt="Hospital Indemnity Vault">
+<h4>Hospital Indemnity Vault</h4>
+<p>12+ Resources</p>
+</a>
+
+<a class="vault-card" href="#contact">
+<img src="images/family-sofa.jpg" alt="Critical Illness Vault">
+<h4>Critical Illness Vault</h4>
+<p>12+ Resources</p>
+</a>
+
+<a class="vault-card" href="#contact">
+<img src="images/family-sofa.jpg" alt="Business Benefits Vault">
+<h4>Business Benefits Vault</h4>
+<p>15+ Resources</p>
+</a>
+
+<a class="vault-card" href="#contact">
+<img src="images/family-sofa.jpg" alt="IUL Library">
+<h4>IUL Library</h4>
+<p>15+ Resources</p>
+</a>
+
+</div>
+
+</div>
+</section>
+
+<section class="exclusive" id="wealth">
+<div class="container">
+<div class="center">
+<p class="tag">Exclusive Planning Resources</p>
+<h2>Available During Your Strategy Session</h2>
+<p>Only these select retirement PDFs require a consultation request.</p>
+</div>
+
+<div class="cards">
+<div class="card"><h3>🔒 Tax-Advantaged Retirement Blueprint</h3><p>Concepts designed to improve retirement tax efficiency and wealth preservation.</p><br><a class="btn" href="#contact">Request Access</a></div>
+<div class="card"><h3>🔒 Retirement Income Strategy Guide</h3><p>Educational examples for retirement income, healthcare planning, and long-term confidence.</p><br><a class="btn" href="#contact">Request During Consultation</a></div>
+<div class="card"><h3>🔒 Health & Wealth Preservation Workbook</h3><p>A guided workbook for healthcare, retirement, and legacy goals.</p><br><a class="btn" href="#contact">Unlock During Review</a></div>
+</div>
+</div>
+</section>
+
+<section id="private">
+<div class="container center">
+<p class="tag">Private Health Benefits</p>
+<h2>Private Health, Indemnity, Life Insurance & Short-Term Healthcare Plans</h2>
+<p>KLASSIC HEALTH works with private health insurance carriers, life insurance carriers, Medicare supplement solutions, indemnity plans, and short-term healthcare plans to help clients compare options based on their needs, state, health, and goals.</p>
+</div>
+</section>
+
+<section id="medicare">
+<div class="container center">
+<p class="tag">Medicare Guidance</p>
+<h2>Medicare Solutions for Retirement Protection</h2>
+<p>Guidance for Medicare Advantage, Medicare Supplements, prescription drug plans, cancer protection, hospital benefits, and final expense planning.</p>
+<br><a class="btn" href="#contact">Schedule Medicare Review</a>
+<section id="marcos" class="marcos-luxury">
+
+<div class="container marcos-luxury-grid">
+
+<div class="marcos-photo-card">
+<img src="images/marcos.jpg" alt="Marcos Roldan">
+</div>
+
+<div class="marcos-info-card">
+
+<p class="tag">
+YOUR LONG-TERM
+</p>
+
+<h2>
+Health & Wealth Partner
+</h2>
+
+<p>
+Helping families make informed decisions today while building confidence for tomorrow.
+</p>
+
+<div class="marcos-stats">
+
+<div>
+<strong>15+</strong>
+<span>Years Experience</span>
+</div>
+
+<div>
+<strong>45+</strong>
+<span>Carriers & Solutions</span>
+</div>
+
+<div>
+<strong>36+</strong>
+<span>States Licensed</span>
+</div>
+
+</div>
+
+<p class="signature">
+Marcos Roldan
+</p>
+
+<p class="founder">
+Founder & Private Benefits Advisor
+</p>
+
+</div>
+
+
+<div class="marcos-quote-card">
+
+<div class="quote-mark">
+“
+</div>
+
+<p>
+
+Our mission is simple:
+
+<br>
+
+to help you protect your health,
+
+<br>
+
+grow your wealth,
+
+<br>
+
+and live life with confidence—
+
+<br>
+
+today and for years to come.
+
+
+</p>
+
+<div class="leaf-mark">
+
+⌁
+
+</div>
+
+</div>
+
+</div>
+</div>
+</section>
+<section class="timeline-section">
+
+<div class="container timeline-grid">
+
+<div class="timeline-left">
+
+<p class="tag">
+A Long-Term View
+</p>
+
+<h2>
+Health Protection + Wealth Accumulation
+</h2>
+
+
+<div class="timeline-chart">
+
+<div class="timeline-row">
+<span>Private PPO / Medical Protection</span>
+<div><b style="width:35%"></b></div>
+</div>
+
+
+<div class="timeline-row">
+<span>Hospital Indemnity & IUL</span>
+<div><b style="width:55%"></b></div>
+</div>
+
+
+<div class="timeline-row">
+<span>Critical Illness Coverage</span>
+<div><b style="width:72%"></b></div>
+</div>
+
+
+<div class="timeline-row">
+<span>Medicare Transition</span>
+<div><b style="width:82%"></b></div>
+</div>
+
+
+<div class="timeline-row">
+<span>Tax Efficient Retirement Income</span>
+<div><b style="width:92%"></b></div>
+</div>
+
+
+<div class="timeline-row">
+<span>Legacy & Estate Planning</span>
+<div><b style="width:100%"></b></div>
+</div>
+
+</div>
+
+</div>
+
+
+
+<div class="timeline-card">
+
+<h3>AT AGE 50</h3>
+
+<ul>
+
+<li>Strengthen Retirement Income</li>
+
+<li>Maximize Tax Advantages</li>
+
+<li>Prepare for Medicare</li>
+
+<li>Increase Legacy Potential</li>
+
+</ul>
+
+<a class="btn" href="#contact">
+
+VIEW FULL STRATEGY
+
+</a>
+
+</div>
+
+
+</div>
+
+</section>
+<section class="form-section" id="contact">
+
+<div class="timeline-left">
+<p class="tag">A Long-Term View</p>
+<h2>Health Protection + Wealth Accumulation</h2>
+
+<div class="timeline-chart">
+<div class="timeline-row"><span>Private PPO / Medical Protection</span><div><b style="width:35%"></b></div></div>
+<div class="timeline-row"><span>Hospital Indemnity & IUL</span><div><b style="width:55%"></b></div></div>
+<div class="timeline-row"><span>Critical Illness Coverage</span><div><b style="width:72%"></b></div></div>
+<div class="timeline-row"><span>Medicare Transition</span><div><b style="width:80%"></b></div></div>
+<div class="timeline-row"><span>Tax-Efficient Retirement Income</span><div><b style="width:90%"></b></div></div>
+<div class="timeline-row"><span>Legacy & Estate Planning</span><div><b style="width:100%"></b></div></div>
+</div>
+</div>
+
+<div class="timeline-card">
+<h3>At Age 50</h3>
+<ul>
+<li>Strengthen retirement income</li>
+<li>Maximize tax advantages</li>
+<li>Prepare for Medicare</li>
+<li>Increase legacy potential</li>
+</ul>
+<a class="btn" href="#contact">View Full Strategy</a>
+</div>
+
+</div>
+</section>
+
+<section class="form-section" id="contact">
+<div class="container form-grid">
+<div>
+<p class="tag">Contact Marcos</p>
+<h2>Let’s Build Your Health & Wealth Strategy Together</h2>
+<p>Submit your inquiry below. Your email is not publicly displayed on this website. Marcos Roldan will follow up directly.</p>
+<br>
+<p><strong>Phone:</strong> 954-998-2727</p>
+<p><strong>Instagram:</strong> @klassic_health</p>
+<p><strong>Facebook:</strong> Klassic Health</p>
+</div>
+
+<form name="klassic-health-inquiry" method="POST" data-netlify="true">
+<input type="hidden" name="form-name" value="klassic-health-inquiry">
+
+<label>First Name</label>
+<input name="first-name" required>
+
+<label>Last Name</label>
+<input name="last-name" required>
+
+<label>Phone Number</label>
+<input name="phone" required>
+
+<label>Email Address</label>
+<input type="email" name="email" required>
+
+<label>State</label>
+<input name="state">
+
+<label>Current Coverage</label>
+<select name="coverage">
+<option>Private Health</option>
+<option>Employer Coverage</option>
+<option>ACA / Marketplace</option>
+<option>Medicare</option>
+<option>No Current Coverage</option>
+<option>Not Sure</option>
+</select>
+
+<label>What are you looking for?</label>
+<select name="interest">
+<option>Private Health Benefits</option>
+<option>Life Insurance</option>
+<option>IUL / Tax-Advantaged Retirement</option>
+<option>Medicare Guidance</option>
+<option>Hospital / Critical Illness Protection</option>
+<option>Short-Term Healthcare Plans</option>
+<option>Small Business Benefits</option>
+<option>Not Sure — I Need Guidance</option>
+</select>
+
+<label>Message</label>
+<textarea name="message"></textarea>
+
+<button class="btn" type="submit">Submit Inquiry</button>
+</form>
+</div>
+</section>
+
+<footer>
+<div class="container footer-grid">
+<div>
+<img src="images/logo.png" class="logo" alt="KLASSIC HEALTH Logo">
+<p>Private Health Benefits • Retirement Simplified • Lifelong Insurance Guidance</p>
+</div>
+<div>
+<h3>Explore</h3>
+<a href="#stage">Explore My Stage</a>
+<a href="#private">Private Health</a>
+<a href="#wealth">Health & Wealth</a>
+<a href="#medicare">Medicare</a>
+</div>
+<div>
+<h3>Resources</h3>
+<a href="#resources">Public Resources</a>
+<a href="#wealth">Exclusive Planning Resources</a>
+<a href="#marcos">Meet Marcos</a>
+<a href="#contact">Schedule Review</a>
+</div>
+<div>
+<h3>Contact</h3>
+<p>954-998-2727</p>
+<p>@klassic_health</p>
+<p>Klassic Health</p>
+<p>Email: Contact form only</p>
+</div>
+</div>
+
+<div class="container disclaimer">
+© 2026 KLASSIC HEALTH. Educational information only. Product availability varies by carrier, state, underwriting, and eligibility. KLASSIC HEALTH is not affiliated with or endorsed by any government agency.
+</div>
+</footer>
+
+<script>
+const stages={
+s30:{
+age:"Ages 30–39",
+title:"Building Foundations",
+text:"Start strong with private health benefits, family protection, income protection, and foundational retirement habits.",
+pills:["Private PPO Medical","Hospital Indemnity","Income Protection","Term Life","IUL Basics","Young Family Planning"],
+metrics:[["Employer Coverage Example","$950/mo"],["Private PPO Example","$575/mo"],["Potential Annual Difference","$4,500"],["IUL Example","$200/mo"]]
+},
+s40:{
+age:"Ages 40–49",
+title:"Growing Wealth Years",
+text:"Build, protect, and grow wealth while securing your family’s future.",
+pills:["Private PPO Medical","Hospital Indemnity","Critical Illness Coverage","Indexed Universal Life","Living Benefits","Business & Tax Strategies"],
+metrics:[["Employer Plan Family","$1,800/mo"],["Private PPO Plan","$900/mo"],["Potential Annual Difference","$10,800"],["IUL Example","$500/mo"]]
+},
+s50:{
+age:"Ages 50–59",
+title:"Preparing Ahead",
+text:"Prepare for retirement while protecting your health and planning your transition toward Medicare.",
+pills:["Private Health to Medicare","Long-Term Care Concepts","Legacy Planning","Hospital Protection","Retirement Income Concepts","Medicare Preparation"],
+metrics:[["Private Health Strategy","To Age 65"],["Medicare Transition","Age 65"],["IUL Timeline","10–20 Years"],["Planning Focus","Preserve Assets"]]
+},
+s60:{
+age:"Ages 60+",
+title:"Protecting Retirement",
+text:"Protect retirement income, healthcare access, and legacy goals.",
+pills:["Medicare Advantage","Medicare Supplements","Prescription Drug Plans","Cancer Protection","Final Expense","Estate Preservation"],
+metrics:[["Medicare Guidance","MAPD / Supp"],["Prescription Drug Plans","Part D"],["Legacy Planning","Final Expense"],["Protection Focus","Healthcare & Family"]]
+}
+};
+
+function showStage(key,btn){
+document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+btn.classList.add('active');
+const s=stages[key];
+document.getElementById('stageAge').innerText=s.age;
+document.getElementById('stageTitle').innerText=s.title;
+document.getElementById('stageText').innerText=s.text;
+document.getElementById('stagePills').innerHTML=s.pills.map(p=>'<span class="pill">'+p+'</span>').join('');
+document.getElementById('metrics').innerHTML=s.metrics.map(m=>'<div class="metric"><span>'+m[0]+'</span><strong>'+m[1]+'</strong></div>').join('');
+}
+</script>
 
 </body>
 </html>
